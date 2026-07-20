@@ -18,7 +18,13 @@ class Menu {
     } else if (userSelect = 2) {
 
     } else if (userSelect = 3) {
-        
+
+    } else if (userSelect = 4) {
+
+    } else if (userSelect = 5) {
+
+    } else if (userSelect = 6) {
+        running = false;
     }
     
 }
