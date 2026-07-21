@@ -1,10 +1,12 @@
 class Menu {
     boolean running;
     Chocolate chocolate;
+    HDChocoShop shop;
 
     Menu() {
         this.running = true;
         this.chocolate = new Chocolate();
+        this.shop = new HDChocoShop();
 
     }
 
@@ -19,7 +21,8 @@ class Menu {
             System.out.println("3. Build a Chocolate");
             System.out.println("4. My cart");
             System.out.println("5. View Order Status");
-            System.out.println("6. Exit");
+            System.out.println("6.Staff acces");
+            System.out.println("7. Exit");
 
             int userSelect = In.nextInt();
 
@@ -34,6 +37,8 @@ class Menu {
             } else if (userSelect == 5) {
                 chocolate.viewOrderStatus();
             } else if (userSelect == 6) {
+                shop.staffAccess();
+            } else if (userSelect == 7) {
                 running = false;
                 System.out.println("Thank you for visiting HD chocolate Factory");
             } else {
