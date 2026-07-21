@@ -1,11 +1,9 @@
 class Menu {
     boolean running;
-    Chocolate chocolate;
     HDChocoShop shop;
 
     Menu() {
         this.running = true;
-        this.chocolate = new Chocolate();
         this.shop = new HDChocoShop();
 
     }
@@ -27,22 +25,22 @@ class Menu {
             int userSelect = In.nextInt();
 
             if (userSelect == 1) {
-                chocolate.membershipSignIn();
+                shop.membershipSignIn();
             } else if (userSelect == 2) {
-                chocolate.searchChocolate();
+                shop.searchChocolate();
             } else if (userSelect == 3) {
-                chocolate.buildChocolate();
+                shop.buildChocolate();
             } else if (userSelect == 4) {
-                chocolate.viewCart();
+                shop.viewCart();
             } else if (userSelect == 5) {
-                chocolate.viewOrderStatus();
+                shop.viewOrderStatus();
             } else if (userSelect == 6) {
                 shop.staffAccess();
             } else if (userSelect == 7) {
                 running = false;
                 System.out.println("Thank you for visiting HD chocolate Factory");
             } else {
-                System.out.println("Invalid option. Please select a number from 1 to 6");
+                System.out.println("Invalid option. Please select a number from 1 to 7");
 
             }
 

@@ -23,4 +23,25 @@ class HDChocoShop {
         System.out.println("3. Remove Chocolate");
         System.out.println("4. Return");
     }
+
+    void membershipSignIn() {
+        System.out.println("Membership Sign In");
+    }
+
+    void searchChocolate() {
+        System.out.println("Search for a Chocolate");
+    }
+
+    void buildChocolate() {
+        System.out.println("Build a Chocolate");
+    }
+
+    void viewCart() {
+        System.out.println("My Cart");
+    }
+
+    void viewOrderStatus() {
+        System.out.println("View Order Status");
+    }
+
 }
