@@ -30,16 +30,41 @@ enum Types {
     WHITE_CHOCOLATE, DARK_CHOCOLATE, MILK_CHOCOLATE, COOKIE_AND_CREAM;
 }
 
-class payment {
+enum PaymentMethod {
+    CASH, CARD, TRANSFER;
+}
+
+enum OrderStatus {
+    PENDING, CONFIRMED, PREPARING, READU_FOR_PICKUP, OUT_FOR_DELIVERY, COMPLETE;
 
 }
 
-class cashPayment extends payment {
+class Chocolate {
+    void membershipSignIn() {
+        System.out.println("Membership Sign In");
+    }
+
+    void searchChocolate() {
+        System.out.println("Search for a Chocolate");
+    }
+
+    void buildChocolate() {
+        System.out.println("Build a Chocolate");
+    }
+
+    void viewCart() {
+        System.out.println("My Cart");
+    }
+
+    void viewOrderStatus() {
+        System.out.println("View Order Status");
+    }
 
 }
 
-class cardPayment extends payment {
-}
-
-interface choose {
+class Main {
+    public static void main(String[] args) {
+        Menu menu = new Menu();
+        menu.runMenu();
+    }
 }
