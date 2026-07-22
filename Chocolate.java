@@ -7,6 +7,7 @@ enum Delivery {
 }
 
 enum Fillings {
+    CARAMEL, NUTS, FRUITS;
 }
 
 enum Sweetness {
@@ -24,6 +25,7 @@ enum Sweetness {
 }
 
 enum Toppings {
+    FRUITS, OREO, CANDY_POP, EXTRA_CHOCOLATE;
 }
 
 enum Types {
@@ -49,10 +51,42 @@ class Chocolate {
     private Fillings filling;
     private Toppings topping;
 
-    // constrcuter + get // have to put
-
-    void displayChocolate() {
-        // } have to put toString? hmmm
+    Chocolate(String productId, String name, double price, Size size, Sweetness sweetness, Types type, Fillings filling,
+            Toppings topping) {
+        this.productId = productId;
+        this.name = name;
+        this.price = price;
+        this.size = size;
+        this.sweetness = sweetness;
+        this.type = type;
+        this.filling = filling;
     }
 
+    public String getProductId() {
+        return productId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public Sweetness getSweetness() {
+        return sweetness;
+    }
+
+    public Types getType() {
+        return type;
+    }
+
+    public Fillings getFilling() {
+        return filling;
+    }
+
+    public String toString() {
+        return "Product Name " + this.name + " Product Id : " + this.productId + "Price: " + this.price;
+    }
 }

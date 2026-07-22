@@ -16,6 +16,10 @@ class HDChocoShop {
         }
     }
 
+    public Inventory getInventory() {
+        return inventory;
+    }
+
     void staffInventoryMenu() {
         System.out.println("Staff Inventory Menu");
         System.out.println("1. Display Inventory");
