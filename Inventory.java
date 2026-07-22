@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+//STAFF ONLY
+
+
 class Inventory {
 
     ArrayList<Chocolate> chocolates;
@@ -14,10 +17,19 @@ class Inventory {
 
     void displayChocolate() {
         ///////
+        for (Chocolate choco : chocolates) {
+            System.out.println(choco);
+        }
     }
 
-    Chocolate searchChocolate(String name) {
+    Chocolate searchChocolate(String chocoName) {
         ///////// fix
-        return null;
+        for (Chocolate c : chocolates) {
+            if chocoName.equals(Chocolate /* c.name */) {
+                return "chocolate found";
+        } else {
+            return "Nothing found"; //Return nothing yet
+        }
     }
+
 }
