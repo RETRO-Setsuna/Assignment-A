@@ -60,6 +60,7 @@ class Chocolate {
         this.sweetness = sweetness;
         this.type = type;
         this.filling = filling;
+        this.topping = topping;
     }
 
     public String getProductId() {
@@ -80,6 +81,14 @@ class Chocolate {
 
     public Types getType() {
         return type;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public Toppings getToppings() {
+        return topping;
     }
 
     public Fillings getFilling() {

@@ -2,10 +2,9 @@ import java.util.ArrayList;
 
 //STAFF ONLY
 
-
 class Inventory {
 
-    ArrayList<Chocolate> chocolates;
+    private ArrayList<Chocolate> chocolates;
 
     Inventory() {
         chocolates = new ArrayList<Chocolate>();
@@ -13,6 +12,11 @@ class Inventory {
 
     void addChocolate(Chocolate c) {
         chocolates.add(c);
+    }
+
+    void addChocolate(String id, String name, double price, Types type, Sweetness sweetness) {
+        Chocolate c = new Chocolate(id, name, price, type, sweetness);
+
     }
 
     void displayChocolate() {
@@ -32,4 +36,5 @@ class Inventory {
         }
     }
 
+}
 }
