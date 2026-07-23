@@ -14,7 +14,7 @@ class Inventory {
         chocolates.add(c);
     }
 
-    void addChocolate(String id, String name, double price, Types type, Size size, Sweetness sweetness, Types type,
+    void addChocolate(String id, String name, double price, Size size, Sweetness sweetness, Types type,
             Fillings filling, Toppings topping) {
         Chocolate c = new Chocolate(id, name, price, size, sweetness, type, filling, topping);
 
