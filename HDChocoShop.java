@@ -1,45 +1,4 @@
 
-import java.util.ArrayList;
-
-
-//inventory from inventory.java with changes to accodmidate new enviroment
-//inventory is STAFF ONLY
-class Inventory {
-
-    ArrayList<Chocolate> chocolates;
-
-    Inventory() {
-        chocolates = new ArrayList<Chocolate>();
-    }
-
-    void addChocolate(Chocolate c) {
-        chocolates.add(c);
-    }
-
-    void removeChocolate(Chocolate c) {
-        chocolates.remove(c);
-    }
-
-    void displayChocolate() {
-        ///////
-        for (Chocolate choco : chocolates) {
-            System.out.println(choco);
-        }
-    }
-
-    Chocolate searchChocolate(String chocoName) {
-        ///////// fix
-        for (Chocolate c : chocolates) {
-            if (chocoName.equals(c.getName())) {
-                return c;
-            } else {
-                return null;
-            }
-        }
-    }
-
-}
-
 
 
 class HDChocoShop {
@@ -53,23 +12,50 @@ class HDChocoShop {
         System.out.print("Enter staff PIN: ");
         int pin = In.nextInt();
 
-        if (pin == 0304) {
+        if (pin == 1234) {
             staffInventoryMenu();
         } else {
             System.out.println("Incorrect staff PIN.");
         }
     }
 
-    public Inventory getInventory() {
+    Inventory getInventory() {
         return inventory;
     }
 
     void staffInventoryMenu() {
-        System.out.println("Staff Inventory Menu");
-        System.out.println("1. Display Inventory");
-        System.out.println("2. Add Chocolate");
-        System.out.println("3. Remove Chocolate");
-        System.out.println("4. Return");
+        boolean running = true;
+        while (running) {
+            System.out.println("Staff Inventory Menu");
+            System.out.println("1. Display Inventory");
+            System.out.println("2. Add Chocolate");
+            System.out.println("3. Remove Chocolate");
+            System.out.println("4. Search Chocolate");
+            System.out.println("5. Return");
+            System.out.println();
+            System.out.print("Select an option: ");
+
+            int staffSelect = In.nextInt();
+
+            if (staffSelect == 1) {
+                inventory.displayChocolate();
+
+            } else if (staffSelect == 2) {
+                addChocolate();
+
+            } else if (staffSelect == 3) {
+                System.out.println("Remove Chocolate");
+
+            } else if (staffSelect == 4) {
+                searchChocolate();
+
+            } else if (staffSelect == 5) {
+                running = false;
+
+            } else {
+                System.out.println("Invalid option.");
+            }
+        }
     }
 
     void membershipSignIn() {
@@ -77,7 +63,33 @@ class HDChocoShop {
     }
 
     void searchChocolate() {
-        System.out.println("Search for a Chocolate");
+        System.out.println("Enter Chocolate name");
+        String name = In.nextLine();
+
+        Chocolate foundChocolate = inventory.searchChocolate(name);
+
+        if (foundChocolate != null) {
+            System.out.println("Chocolate found:");
+            System.out.println(foundChocolate);
+        } else {
+            System.out.println("Chocolate not found.");
+        }
+    }    
+
+    void addChocolate() {
+        System.out.print("Enter product ID: ");
+        String id = In.nextLine();
+
+        System.out.print("Enter chocolate name: ");
+        String name = In.nextLine();
+
+        System.out.print("Enter price: ");
+        double price = In.nextDouble();
+
+        inventory.addChocolate(id, name, price, Size.M, Sweetness.FIFTY, Types.MILK_CHOCOLATE, Fillings.CARAMEL,
+                Toppings.OREO);
+
+        System.out.println("Chocolate added successfully.");
     }
 
     void buildChocolate() {

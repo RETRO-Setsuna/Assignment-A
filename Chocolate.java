@@ -37,7 +37,7 @@ enum PaymentMethod {
 }
 
 enum OrderStatus {
-    PENDING, CONFIRMED, PREPARING, READy_FOR_PICKUP, OUT_FOR_DELIVERY, COMPLETE;
+    PENDING, CONFIRMED, PREPARING, READY_FOR_PICKUP, OUT_FOR_DELIVERY, COMPLETE;
 
 }
 
@@ -60,6 +60,7 @@ class Chocolate {
         this.sweetness = sweetness;
         this.type = type;
         this.filling = filling;
+        this.topping = topping;
     }
 
     public String getProductId() {
@@ -82,10 +83,27 @@ class Chocolate {
         return type;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public Toppings getToppings() {
+        return topping;
+    }
+
     public Fillings getFilling() {
         return filling;
     }
 
+    void displayChocolate() {
+        System.out.println("Type: " + type);
+        System.out.println("Size: " + size);
+        System.out.println("Sweetness: " + sweetness.getPercentage() + "%");
+        System.out.println("Filling: " + filling);
+        System.out.println("Topping: " + topping);
+    }
+
+    @Override
     public String toString() {
         return "Product Name " + this.name + " Product Id : " + this.productId + "Price: " + this.price;
     }
