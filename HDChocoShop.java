@@ -1,3 +1,43 @@
+
+import java.util.ArrayList;
+
+
+//inventory from inventory.java with changes to accodmidate new enviroment
+//inventory is STAFF ONLY
+class Inventory {
+
+    ArrayList<Chocolate> chocolates;
+
+    Inventory() {
+        chocolates = new ArrayList<Chocolate>();
+    }
+
+    void addChocolate(Chocolate c) {
+        chocolates.add(c);
+    }
+
+    void displayChocolate() {
+        ///////
+        for (Chocolate choco : chocolates) {
+            System.out.println(choco);
+        }
+    }
+
+    Chocolate searchChocolate(String chocoName) {
+        ///////// fix
+        for (Chocolate c : chocolates) {
+            if (chocoName.equals(c.getName())) {
+                return c;
+            } else {
+                return null;
+            }
+        }
+    }
+
+}
+
+
+
 class HDChocoShop {
     private Inventory inventory;
 
