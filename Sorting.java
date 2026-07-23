@@ -1,15 +1,23 @@
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 
+
+//sorting by alpophabetical order
 class sortingABC {
-    static final Comparator<Chocolate> comparator = Comparator.comparing(Chocolate::productName).thenComparing(Chocolate::productPrice);
+    static final Comparator <Chocolate> comparator = Comparator.comparing(Chocolate::getName).thenComparing(Chocolate::getPrice);
 
-    Collections.sort(ArrayList, Chocolate.comparator);
+void sortChocolate(ArrayList<Chocolate> chocolates){
+    Collections.sort(chocolates, comparator);
 
-    for (Chocolate c : ArrayList) {
+    for (Chocolate c : chocolates) {
         System.out.println(c);
     }
+}
+}
 
+
+//sort by price
+class sortingPrice {
 
 }

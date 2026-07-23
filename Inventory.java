@@ -37,3 +37,7 @@ class Inventory {
         return null;
     }
 }
+
+//staff update?
+// order status here?
+
