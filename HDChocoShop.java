@@ -1,7 +1,6 @@
 
 import java.util.ArrayList;
 
-
 //inventory from inventory.java with changes to accodmidate new enviroment
 //inventory is STAFF ONLY
 class Inventory {
@@ -35,8 +34,6 @@ class Inventory {
     }
 
 }
-
-
 
 class HDChocoShop {
     private Inventory inventory;

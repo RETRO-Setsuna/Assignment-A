@@ -14,27 +14,26 @@ class Inventory {
         chocolates.add(c);
     }
 
-    void addChocolate(String id, String name, double price, Types type, Sweetness sweetness) {
-        Chocolate c = new Chocolate(id, name, price, type, sweetness);
+    void addChocolate(String id, String name, double price, Types type, Size size, Sweetness sweetness, Types type,
+            Fillings filling, Toppings topping) {
+        Chocolate c = new Chocolate(id, name, price, size, sweetness, type, filling, topping);
 
+        chocolates.add(c);
     }
 
     void displayChocolate() {
-        ///////
+
         for (Chocolate choco : chocolates) {
             System.out.println(choco);
         }
     }
 
     Chocolate searchChocolate(String chocoName) {
-        ///////// fix
         for (Chocolate c : chocolates) {
-            if chocoName.equals(Chocolate /* c.name */) {
-                return "chocolate found";
-        } else {
-            return "Nothing found"; //Return nothing yet
+            if (chocoName.equals(c.getName())) {
+                return c;
+            }
         }
+        return null;
     }
-
-}
 }
