@@ -16,6 +16,10 @@ class Inventory {
         chocolates.add(c);
     }
 
+    void removeChocolate(Chocolate c) {
+        chocolates.remove(c);
+    }
+
     void displayChocolate() {
         ///////
         for (Chocolate choco : chocolates) {
