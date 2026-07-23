@@ -3,7 +3,7 @@ import java.util.Collection;
 import java.util.Comparator;
 
 class sortingABC {
-    static final Comparator<Chocolate> comparator = Comparator.comparing(Chocolate::productName).thenComparing(Chocolate::productID);
+    static final Comparator<Chocolate> comparator = Comparator.comparing(Chocolate::productName).thenComparing(Chocolate::productPrice);
 
     Collections.sort(ArrayList, Chocolate.comparator);
 

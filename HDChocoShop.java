@@ -334,7 +334,7 @@ class HDChocoShop {
             price = price + 2.00;
         }
 
-        String productName = "CUSTOM-" + name;
+        String productName = "CUSTOM- " + name;
 
         Chocolate customChocolate = new Chocolate(productName, name, price, size, sweetness, type, filling, topping);
 

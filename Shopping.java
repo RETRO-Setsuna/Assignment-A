@@ -24,3 +24,8 @@ class Shopping {
         }
     }
 }
+
+// have to make 
+//1.check out
+//2. view order status
+//in here
