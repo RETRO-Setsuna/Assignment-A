@@ -1,8 +1,10 @@
 class HDChocoShop {
     private Inventory inventory;
+    private Shopping shopping;
 
     HDChocoShop() {
         inventory = new Inventory();
+        shopping = new Shopping();
     }
 
     void staffAccess() {
@@ -229,10 +231,12 @@ class HDChocoShop {
         System.out.println("Your chocolate has been created.");
         customChocolate.displayChocolate();
         System.out.println("Price: $" + customChocolate.getPrice());
+
+        shopping.addToCart(customChocolate);
     }
 
     void viewCart() {
-        System.out.println("My Cart");
+        shopping.displayCart();
     }
 
     void viewOrderStatus() {
