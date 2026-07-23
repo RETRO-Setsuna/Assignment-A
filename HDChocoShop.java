@@ -21,30 +21,37 @@ class HDChocoShop {
     }
 
     void staffInventoryMenu() {
-        System.out.println("Staff Inventory Menu");
-        System.out.println("1. Display Inventory");
-        System.out.println("2. Add Chocolate");
-        System.out.println("3. Remove Chocolate");
-        System.out.println("4. Search Chocolate");
-        System.out.println("5. Return");
-        System.out.println();
-        System.out.println("Select an option: ");
-        int staffSelect = In.nextInt();
+        boolean running = true;
+        while (running) {
+            System.out.println("Staff Inventory Menu");
+            System.out.println("1. Display Inventory");
+            System.out.println("2. Add Chocolate");
+            System.out.println("3. Remove Chocolate");
+            System.out.println("4. Search Chocolate");
+            System.out.println("5. Return");
+            System.out.println();
+            System.out.print("Select an option: ");
 
-        if (staffSelect == 1) {
-            inventory.displayChocolate();
+            int staffSelect = In.nextInt();
 
-        } else if (staffSelect == 2) {
-            System.out.println("Add Chocolate");
+            if (staffSelect == 1) {
+                inventory.displayChocolate();
 
-        } else if (staffSelect == 3) {
-            System.out.println("Remove Chocolate");
+            } else if (staffSelect == 2) {
+                addChocolate();
 
-        } else if (staffSelect == 4) {
-            return;
+            } else if (staffSelect == 3) {
+                System.out.println("Remove Chocolate");
 
-        } else {
-            System.out.println("Invalid option.");
+            } else if (staffSelect == 4) {
+                searchChocolate();
+
+            } else if (staffSelect == 5) {
+                running = false;
+
+            } else {
+                System.out.println("Invalid option.");
+            }
         }
     }
 
@@ -64,6 +71,22 @@ class HDChocoShop {
         } else {
             System.out.println("Chocolate not found.");
         }
+    }
+
+    void addChocolate() {
+        System.out.print("Enter product ID: ");
+        String id = In.nextLine();
+
+        System.out.print("Enter chocolate name: ");
+        String name = In.nextLine();
+
+        System.out.print("Enter price: ");
+        double price = In.nextDouble();
+
+        inventory.addChocolate(id, name, price, Size.M, Sweetness.FIFTY, Types.MILK_CHOCOLATE, Fillings.CARAMEL,
+                Toppings.OREO);
+
+        System.out.println("Chocolate added successfully.");
     }
 
     void buildChocolate() {
