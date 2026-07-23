@@ -1,9 +1,8 @@
 class Menu {
-    HDChocoShop shop;
+    private HDChocoShop shop;
 
-    Menu() {
-        this.shop = new HDChocoShop();
-
+    Menu(HDChocoShop shop) {
+        this.shop = shop;
     }
 
     void runMenu() {
