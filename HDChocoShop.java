@@ -1,40 +1,3 @@
-
-import java.util.ArrayList;
-
-//inventory from inventory.java with changes to accodmidate new enviroment
-//inventory is STAFF ONLY
-class Inventory {
-
-    ArrayList<Chocolate> chocolates;
-
-    Inventory() {
-        chocolates = new ArrayList<Chocolate>();
-    }
-
-    void addChocolate(Chocolate c) {
-        chocolates.add(c);
-    }
-
-    void displayChocolate() {
-        ///////
-        for (Chocolate choco : chocolates) {
-            System.out.println(choco);
-        }
-    }
-
-    Chocolate searchChocolate(String chocoName) {
-        ///////// fix
-        for (Chocolate c : chocolates) {
-            if (chocoName.equals(c.getName())) {
-                return c;
-            } else {
-                return null;
-            }
-        }
-    }
-
-}
-
 class HDChocoShop {
     private Inventory inventory;
 
@@ -46,15 +9,11 @@ class HDChocoShop {
         System.out.print("Enter staff PIN: ");
         int pin = In.nextInt();
 
-        if (pin == 0304) {
+        if (pin == 1234) {
             staffInventoryMenu();
         } else {
             System.out.println("Incorrect staff PIN.");
         }
-    }
-
-    public Inventory getInventory() {
-        return inventory;
     }
 
     void staffInventoryMenu() {
@@ -71,6 +30,16 @@ class HDChocoShop {
 
     void searchChocolate() {
         System.out.println("Search for a Chocolate");
+        String name = In.nextLine();
+
+        Chocolate foundChocolate = inventory.searchChocolate(name);
+
+        if (foundChocolate != null) {
+            System.out.println("Chocolate found:");
+            System.out.println(foundChocolate);
+        } else {
+            System.out.println("Chocolate not found.");
+        }
     }
 
     void buildChocolate() {
