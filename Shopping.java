@@ -54,13 +54,20 @@ class Shopping {
         System.out.println("Chocolate not found.");
     }
 
-    void checkout() {
+    void checkout(boolean memberSignedIn) {
         if (cart.isEmpty()) {
             System.out.println("Your cart is empty.");
             return;
         }
 
         double total = calculateTotal();
+        double discount = 0;
+
+        if (memberSignedIn) {
+            discount = total * 0.10;
+            total = total - discount;
+        }
+
         PaymentMethod paymentMethod = choosePaymentMethod();
         Delivery delivery = chooseDelivery();
 
@@ -68,10 +75,18 @@ class Shopping {
 
         System.out.println();
         System.out.println("Checkout Summary");
+
+        if (memberSignedIn) {
+            System.out.println("Member Discount: $" + discount);
+        } else {
+            System.out.println("Sign in as a member to receive a 10% discount.");
+        }
+
         System.out.println("Total Price: $" + total);
         System.out.println("Payment Method: " + paymentMethod);
         System.out.println("Delivery Option: " + delivery);
         System.out.println("Order placed successfully.");
+        System.out.println();
     }
 
     void viewOrderStatus() {

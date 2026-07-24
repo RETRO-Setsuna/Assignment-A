@@ -3,10 +3,13 @@ class HDChocoShop {
     private Inventory inventory;
     private Shopping shopping;
     private Users user;
+    private boolean memberSignedIn;
 
     HDChocoShop() {
         inventory = new Inventory();
         shopping = new Shopping();
+        user = new Users("Guest", "Not provided");
+        memberSignedIn = false;
     }
 
     void staffAccess() {
@@ -69,7 +72,10 @@ class HDChocoShop {
         String phoneNumber = In.nextLine();
 
         user = new Users(name, phoneNumber);
+        memberSignedIn = true;
         System.out.println("Welcome, " + user.getName() + "!");
+        System.out.println("Members can receive 10% discount!");
+        System.out.println();
     }
 
     void searchChocolate() {
@@ -365,7 +371,7 @@ class HDChocoShop {
     }
 
     void checkout() {
-        shopping.checkout();
+        shopping.checkout(memberSignedIn);
     }
 
     void deleteFromCart() {
