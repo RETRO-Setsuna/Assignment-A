@@ -2,6 +2,7 @@
 class HDChocoShop {
     private Inventory inventory;
     private Shopping shopping;
+    private Users user;
 
     HDChocoShop() {
         inventory = new Inventory();
@@ -60,6 +61,15 @@ class HDChocoShop {
 
     void membershipSignIn() {
         System.out.println("Membership Sign In");
+        System.out.println();
+        System.out.print("Enter your name: ");
+        String name = In.nextLine();
+
+        System.out.print("Enter your phone number: ");
+        String phoneNumber = In.nextLine();
+
+        user = new Users(name, phoneNumber);
+        System.out.println("Welcome, " + user.getName() + "!");
     }
 
     void searchChocolate() {
