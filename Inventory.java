@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import javax.swing.text.html.StyleSheet;
 
 //STAFF ONLY
 
@@ -40,4 +42,29 @@ class Inventory {
 
 //staff update?
 // order status here?
+
+enum Status {
+    PREPARING, PACKING, DELIVERING, RECEIEVING, DELIVERED
+}
+
+class statusUpdater() {
+
+
+    
+    void staffUpdateStat(Status statusType) {
+        if (statusType.equals(Status.PREPARING) {
+            System.out.println("Your order is currently being Prepared");
+        } else if (statusType.equals(Status.DELIVERING)) {
+            System.out.println("Your order is currently begining Delivered to you!");
+        } else if (statusType.equals(Status.PACKING)) {
+            System.out.println("Your ordering is currently being Packaged");
+        } else if (statusType.equals(Status.RECEIEVING)) {
+            System.out.println("Your order is currently being processed");
+        } else if (statusType.equals(Status.DELIVERED)) {
+            System.out.println("Your order has arrived!");
+        } else {
+            System.out.println("Error.");
+        }
+    }
+}
 
