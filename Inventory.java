@@ -47,24 +47,50 @@ enum Status {
     PREPARING, PACKING, DELIVERING, RECEIEVING, DELIVERED
 }
 
-class statusUpdater() {
+class statusUpdater {
 
+    private String StatusMessage;
 
-    
     void staffUpdateStat(Status statusType) {
         if (statusType.equals(Status.PREPARING) {
-            System.out.println("Your order is currently being Prepared");
+            this.StatusMessage = "Your order is currently being Prepared";
         } else if (statusType.equals(Status.DELIVERING)) {
-            System.out.println("Your order is currently begining Delivered to you!");
+            this.StatusMessage = "Your order is currently begining Delivered to you!";
         } else if (statusType.equals(Status.PACKING)) {
-            System.out.println("Your ordering is currently being Packaged");
+            this.StatusMessage = "Your ordering is currently being Packaged";
         } else if (statusType.equals(Status.RECEIEVING)) {
-            System.out.println("Your order is currently being processed");
+            this.StatusMessage = "Your order is currently being processed";
         } else if (statusType.equals(Status.DELIVERED)) {
-            System.out.println("Your order has arrived!");
+            this.StatusMessage = "Your order has arrived!";
         } else {
-            System.out.println("Error.");
+            this.StatusMessage = "Error.";
         }
     }
+
+    public String getStatusMessage() {
+        return this.StatusMessage;
+    }
+
+
+    void changingOrderStat() {
+        System.out.println("which chocolate's order status do you want to change?");
+        String staffAns = In.nextLine();
+
+        if (staffAns.equals(Status.DELIVERED)) {
+            staffUpdateStat(Status.DELIVERED);
+        } else if (staffAns.equals(Status.DELIVERING)) {
+            staffUpdateStat(Status.DELIVERING);
+        } else if (staffAns.equals(Status.PACKING)) {
+            staffUpdateStat(Status.PACKING);
+        } else if (staffAns.equals(Status.PREPARING)) {
+            staffUpdateStat(Status.PREPARING);
+        } else if (staffAns.equals(Status.RECEIEVING)) {
+            staffUpdateStat(Status.RECEIEVING);
+        }
+
+    }
+
+    
+
 }
 
