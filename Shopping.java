@@ -33,6 +33,27 @@ class Shopping {
         }
     }
 
+    void deleteFromCart() {
+        if (cart.isEmpty()) {
+            System.out.println("Your cart is empty.");
+            return;
+        }
+
+        displayCart();
+
+        System.out.print("Enter chocolate name: ");
+        String name = In.nextLine();
+
+        for (int i = 0; i < cart.size(); i++) {
+            if (cart.get(i).getName().equals(name)) {
+                deleteFromCart(cart.get(i));
+                return;
+            }
+        }
+
+        System.out.println("Chocolate not found.");
+    }
+
     void checkout() {
         if (cart.isEmpty()) {
             System.out.println("Your cart is empty.");
@@ -114,7 +135,6 @@ class Shopping {
 }
 
 // have to make
-// 2. view order status
 
 // 4. delete from cart:
 // 5. check out cash/card/transfer

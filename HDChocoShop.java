@@ -357,4 +357,8 @@ class HDChocoShop {
     void checkout() {
         shopping.checkout();
     }
+
+    void deleteFromCart() {
+        shopping.deleteFromCart();
+    }
 }
