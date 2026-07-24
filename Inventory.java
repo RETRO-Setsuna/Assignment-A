@@ -38,6 +38,5 @@ class Inventory {
     }
 }
 
-//staff update?
+// staff update?
 // order status here?
-

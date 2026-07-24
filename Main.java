@@ -16,3 +16,9 @@ class Main {
         menu.runMenu();
     }
 }
+// for tmr
+// my cart sub
+// memeber 10 % disocunt
+// sorting combine
+// check out cart fix
+// staff orderstatus
