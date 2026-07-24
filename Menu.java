@@ -8,16 +8,15 @@ class Menu {
     void runMenu() {
         System.out.println("Welcome to HD Chocolate Factory!");
         System.out.println("Please select a option from below");
-        while (true)
-
-        {
+        while (true) {
             System.out.println("1. Membership Sign in");
             System.out.println("2. Search for a Chocolate");
             System.out.println("3. Build a Chocolate");
             System.out.println("4. My cart");
-            System.out.println("5. View Order Status");
-            System.out.println("6. Staff acces");
-            System.out.println("7. Exit");
+            System.out.println("5. Checkout");
+            System.out.println("6. View Order Status");
+            System.out.println("7. Staff access");
+            System.out.println("8. Exit");
 
             int userSelect = In.nextInt();
 
@@ -30,15 +29,16 @@ class Menu {
             } else if (userSelect == 4) {
                 shop.viewCart();
             } else if (userSelect == 5) {
-                shop.viewOrderStatus();
+                shop.checkout();
             } else if (userSelect == 6) {
-                shop.staffAccess();
+                shop.viewOrderStatus();
             } else if (userSelect == 7) {
-                System.out.println("Thank you for visiting HD chocolate Factory");
+                shop.staffAccess();
+            } else if (userSelect == 8) {
+                System.out.println("Thank you for visiting our HD Chocolat ");
                 break;
             } else {
-                System.out.println("Invalid option. Please select a number from 1 to 7");
-
+                System.out.println("Invalid number. Please select a number from 1 to 8.");
             }
 
         }

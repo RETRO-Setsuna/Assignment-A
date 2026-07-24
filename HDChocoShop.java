@@ -353,4 +353,8 @@ class HDChocoShop {
     void viewOrderStatus() {
         System.out.println("View Order Status");
     }
+
+    void checkout() {
+        shopping.checkout();
+    }
 }
