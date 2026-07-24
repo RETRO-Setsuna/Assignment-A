@@ -133,10 +133,3 @@ class Shopping {
         }
     }
 }
-
-// have to make
-
-// 4. delete from cart:
-// 5. check out cash/card/transfer
-// 6. delivery pick up
-// in here
