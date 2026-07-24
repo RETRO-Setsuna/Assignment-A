@@ -64,7 +64,7 @@ class Shopping {
         double discount = 0;
 
         if (memberSignedIn) {
-            discount = total * 0.10;
+            discount = total * 0.1;
             total = total - discount;
         }
 
