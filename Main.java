@@ -16,7 +16,7 @@ class Main {
         menu.runMenu();
     }
 }
-// for tmr
+// for tmrd
 // my cart sub
 // memeber 10 % disocunt
 // sorting combine
