@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-//sorting by alpophabetical order
 class SortingABC {
     static final Comparator<Chocolate> comparator = Comparator.comparing(Chocolate::getName)
             .thenComparing(Chocolate::getPrice);
@@ -16,7 +15,6 @@ class SortingABC {
     }
 }
 
-// sort by price
 class SortingPrice {
     static final Comparator<Chocolate> comparator = Comparator.comparing(Chocolate::getPrice)
             .thenComparing(Chocolate::getType);

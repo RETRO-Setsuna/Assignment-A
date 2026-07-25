@@ -49,7 +49,8 @@ class HDChocoShop {
                 addChocolate();
 
             } else if (staffSelect == 3) {
-                System.out.println("Remove Chocolate"); // remove finish we change it
+                removeChocolate();
+                ;
 
             } else if (staffSelect == 4) {
                 searchChocolate();
@@ -453,5 +454,15 @@ class HDChocoShop {
                 System.out.println("Invalid option.");
             }
         }
+    }
+
+    void removeChocolate() {
+        System.out.println("Remove Chocolate");
+        inventory.displayChocolate();
+
+        System.out.print("Enter chocolate name: ");
+        String name = In.nextLine();
+
+        inventory.removeChocolate(name);
     }
 }

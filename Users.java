@@ -15,8 +15,7 @@ class Users {
         return phoneNumber;
     }
 
-    
     public String toString() {
-        return "Name: " + name + "Phone Number: " + phoneNumber;
+        return "Name: " + name + "    Phone Number: " + phoneNumber;
     }
 }

@@ -38,4 +38,18 @@ class Inventory {
     ArrayList<Chocolate> getChocolates() {
         return chocolates;
     }
+
+    void removeChocolate(String chocoName) {
+        for (int i = 0; i < chocolates.size(); i++) {
+            if (chocoName.equals(chocolates.get(i).getName())) {
+                Chocolate removedChocolate = chocolates.remove(i);
+
+                System.out.println(removedChocolate.getName()
+                        + " has been removed from the inventory.");
+                return;
+            }
+        }
+
+        System.out.println("Chocolate not found.");
+    }
 }
