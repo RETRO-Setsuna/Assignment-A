@@ -147,4 +147,15 @@ class Shopping {
             return Delivery.PICK_UP;
         }
     }
+
+    void staffUpdateStatus(OrderStatus newStatus) {
+        if (orderStatus == OrderStatus.NO_ORDER) {
+            System.out.println("No order has been placed.");
+            return;
+        }
+
+        orderStatus = newStatus;
+        System.out.println("Order status updated to: " + orderStatus);
+    }
+
 }

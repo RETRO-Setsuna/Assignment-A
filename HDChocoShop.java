@@ -53,6 +53,34 @@ class HDChocoShop {
 
             } else if (staffSelect == 4) {
                 searchChocolate();
+            } else if (staffSelect == 5) {
+                System.out.println();
+                System.out.println("Update Order Status");
+                System.out.println("1. Pending");
+                System.out.println("2. Confirmed");
+                System.out.println("3. Preparing");
+                System.out.println("4. Ready for Pickup");
+                System.out.println("5. Out for Delivery");
+                System.out.println("6. Complete");
+                System.out.print("Select an option: ");
+
+                int choice = In.nextInt();
+
+                if (choice == 1) {
+                    shopping.staffUpdateStatus(OrderStatus.PENDING);
+                } else if (choice == 2) {
+                    shopping.staffUpdateStatus(OrderStatus.CONFIRMED);
+                } else if (choice == 3) {
+                    shopping.staffUpdateStatus(OrderStatus.PREPARING);
+                } else if (choice == 4) {
+                    shopping.staffUpdateStatus(OrderStatus.READY_FOR_PICKUP);
+                } else if (choice == 5) {
+                    shopping.staffUpdateStatus(OrderStatus.OUT_FOR_DELIVERY);
+                } else if (choice == 6) {
+                    shopping.staffUpdateStatus(OrderStatus.COMPLETE);
+                } else {
+                    System.out.println("Invalid option.");
+                }
 
             } else if (staffSelect == 6) {
                 running = false;
@@ -61,6 +89,7 @@ class HDChocoShop {
                 System.out.println("Invalid option.");
             }
         }
+
     }
 
     void membershipSignIn() {
@@ -368,7 +397,7 @@ class HDChocoShop {
     }
 
     void viewOrderStatus() {
-        System.out.println("View Order Status");
+        shopping.viewOrderStatus();
     }
 
     void checkout() {
