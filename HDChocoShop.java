@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 class HDChocoShop {
     private Inventory inventory;
@@ -36,7 +37,8 @@ class HDChocoShop {
             System.out.println("3. Remove Chocolate");
             System.out.println("4. Search Chocolate");
             System.out.println("5. Change Customer order status");
-            System.out.println("6. Return");
+            System.out.println("6. Sort Chocolate");
+            System.out.println("7. Return");
             System.out.println();
             System.out.print("Select an option: ");
 
@@ -83,6 +85,25 @@ class HDChocoShop {
                 }
 
             } else if (staffSelect == 6) {
+                SortingABC abc = new SortingABC();
+                SortingPrice price = new SortingPrice();
+
+                System.out.println("Sort Chocolate");
+                System.out.println();
+                System.out.println("1. Alphabetical");
+                System.out.println("2. Price");
+                System.out.println();
+                System.out.print("Select an option: ");
+
+                int choice = In.nextInt();
+
+                if (choice == 1) {
+                    abc.sortChocolate(inventory.getChocolates());
+                } else if (choice == 2) {
+                    price.sortChocolate(inventory.getChocolates());
+                }
+
+            } else if (staffSelect == 7) {
                 running = false;
 
             } else {
@@ -406,5 +427,36 @@ class HDChocoShop {
 
     void deleteFromCart() {
         shopping.deleteFromCart();
+    }
+
+    void cartMenu() {
+        boolean running = true;
+
+        while (running) {
+            System.out.println();
+            System.out.println("My Cart Menu");
+            System.out.println("1. View Cart");
+            System.out.println("2. Delete From Cart");
+            System.out.println("3. Checkout");
+            System.out.println("4. View Order Status");
+            System.out.println("5. Return");
+            System.out.print("Select an option: ");
+
+            int choice = In.nextInt();
+
+            if (choice == 1) {
+                viewCart();
+            } else if (choice == 2) {
+                deleteFromCart();
+            } else if (choice == 3) {
+                checkout();
+            } else if (choice == 4) {
+                viewOrderStatus();
+            } else if (choice == 5) {
+                running = false;
+            } else {
+                System.out.println("Invalid option.");
+            }
+        }
     }
 }

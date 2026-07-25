@@ -34,4 +34,8 @@ class Inventory {
         }
         return null;
     }
+
+    ArrayList<Chocolate> getChocolates() {
+        return chocolates;
+    }
 }
