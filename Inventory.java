@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-//STAFF ONLY
-
 class Inventory {
 
     private ArrayList<Chocolate> chocolates;
@@ -37,6 +35,3 @@ class Inventory {
         return null;
     }
 }
-
-// staff update?
-// order status here?

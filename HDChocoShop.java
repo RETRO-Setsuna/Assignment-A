@@ -35,7 +35,8 @@ class HDChocoShop {
             System.out.println("2. Add Chocolate");
             System.out.println("3. Remove Chocolate");
             System.out.println("4. Search Chocolate");
-            System.out.println("5. Return");
+            System.out.println("5. Change Customer order status");
+            System.out.println("6. Return");
             System.out.println();
             System.out.print("Select an option: ");
 
@@ -53,7 +54,7 @@ class HDChocoShop {
             } else if (staffSelect == 4) {
                 searchChocolate();
 
-            } else if (staffSelect == 5) {
+            } else if (staffSelect == 6) {
                 running = false;
 
             } else {
@@ -368,6 +369,7 @@ class HDChocoShop {
 
     void viewOrderStatus() {
         System.out.println("View Order Status");
+        System.out.println(getStatusMessage());
     }
 
     void checkout() {
