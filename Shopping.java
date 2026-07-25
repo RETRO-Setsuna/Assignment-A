@@ -87,6 +87,7 @@ class Shopping {
         System.out.println("Delivery Option: " + delivery);
         System.out.println("Order placed successfully.");
         System.out.println();
+        cart.clear();
     }
 
     void viewOrderStatus() {
