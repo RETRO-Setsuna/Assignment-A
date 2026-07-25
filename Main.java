@@ -16,9 +16,15 @@ class Main {
         menu.runMenu();
     }
 }
-// for tmrd
-// my cart sub
-// memeber 10 % disocunt
-// sorting combine
-// check out cart fix
-// staff orderstatus
+
+// Replace ArrayList with List
+// Complete Remove Chocolate
+// Add Filter feature // sub collection
+// Create a Parent Class (Chocolate)
+// Create Child Classes (NormalChocolate, CustomChocolate)
+// Update object creation (new NormalChocolate(), new CustomChocolate())
+// Implement Method Overriding & Polymorphism
+// Add an Interface
+// Replace HashMap declaration with Map
+// Map<String, Users> members = new HashMap<>();
+// Improve toString() methods
