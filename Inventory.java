@@ -1,8 +1,9 @@
 import java.util.ArrayList;
+import java.util.List;
 
 class Inventory {
 
-    private ArrayList<Chocolate> chocolates;
+    private List<Chocolate> chocolates;
 
     Inventory() {
         chocolates = new ArrayList<Chocolate>();
@@ -35,7 +36,7 @@ class Inventory {
         return null;
     }
 
-    ArrayList<Chocolate> getChocolates() {
+    List<Chocolate> getChocolates() {
         return chocolates;
     }
 
