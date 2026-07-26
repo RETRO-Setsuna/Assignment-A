@@ -50,7 +50,6 @@ class HDChocoShop {
 
             } else if (staffSelect == 3) {
                 removeChocolate();
-                ;
 
             } else if (staffSelect == 4) {
                 searchChocolate();
@@ -126,7 +125,10 @@ class HDChocoShop {
     }
 
     void searchChocolate() {
-        System.out.println("Enter Chocolate name");
+        System.out.println("Search Chocolate");
+        System.out.println();
+
+        System.out.print("Enter chocolate name to search: ");
         String name = In.nextLine();
 
         Chocolate foundChocolate = inventory.searchChocolate(name);
@@ -458,9 +460,11 @@ class HDChocoShop {
 
     void removeChocolate() {
         System.out.println("Remove Chocolate");
+        System.out.println();
+
         inventory.displayChocolate();
 
-        System.out.print("Enter chocolate name: ");
+        System.out.print("Enter chocolate name to remove: ");
         String name = In.nextLine();
 
         inventory.removeChocolate(name);

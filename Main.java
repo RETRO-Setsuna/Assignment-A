@@ -17,8 +17,6 @@ class Main {
     }
 }
 
-// Replace ArrayList with List
-// Complete Remove Chocolate
 // Add Filter feature // sub collection
 // Create a Parent Class (Chocolate)
 // Create Child Classes (NormalChocolate, CustomChocolate)
