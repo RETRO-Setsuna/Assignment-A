@@ -38,7 +38,7 @@ class Menu {
             } else if (userSelect == 7) {
                 shop.staffAccess();
             } else if (userSelect == 8) {
-                System.out.println("Thank you for visiting our HD Chocolat ");
+                System.out.println("Thank you for visiting our HD Chocolate shop!!! ");
                 break;
             } else {
                 System.out.println("Invalid number. Please select a number from 1 to 8.");
