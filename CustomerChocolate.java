@@ -1,0 +1,9 @@
+class CustomChocolate extends Chocolate {
+
+    CustomChocolate(String id, String name, double price, Size size,
+            Sweetness sweetness, Types type,
+            Fillings filling, Toppings topping) {
+
+        super(id, name, price, size, sweetness, type, filling, topping);
+    }
+}

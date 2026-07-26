@@ -401,7 +401,8 @@ class HDChocoShop {
 
         String productName = "CUSTOM- " + name;
 
-        Chocolate customChocolate = new Chocolate(productName, name, price, size, sweetness, type, filling, topping);
+        Chocolate customChocolate = new CustomChocolate(productName, name, price, size, sweetness, type, filling,
+                topping);
 
         System.out.println();
         System.out.println("Your chocolate has been created.");
