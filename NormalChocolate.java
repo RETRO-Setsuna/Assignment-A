@@ -7,3 +7,4 @@ class NormalChocolate extends Chocolate {
         super(id, name, price, size, sweetness, type, filling, topping);
     }
 }
+//
