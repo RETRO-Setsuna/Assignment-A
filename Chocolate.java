@@ -105,6 +105,6 @@ class Chocolate {
 
     @Override
     public String toString() {
-        return "Product Name " + this.name + " Product Id : " + this.productId + "Price: " + this.price;
+        return "Product Name:  " + this.name + "  Product Id : " + this.productId + " Price: " + this.price;
     }
 }

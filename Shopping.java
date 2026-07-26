@@ -1,7 +1,8 @@
 import java.util.ArrayList;
+import java.util.List;
 
 class Shopping {
-    private ArrayList<Chocolate> cart;
+    private List<Chocolate> cart;
     private OrderStatus orderStatus;
 
     Shopping() {
@@ -87,6 +88,7 @@ class Shopping {
         System.out.println("Delivery Option: " + delivery);
         System.out.println("Order placed successfully.");
         System.out.println();
+        cart.clear();
     }
 
     void viewOrderStatus() {
@@ -147,4 +149,15 @@ class Shopping {
             return Delivery.PICK_UP;
         }
     }
+
+    void staffUpdateStatus(OrderStatus newStatus) {
+        if (orderStatus == OrderStatus.NO_ORDER) {
+            System.out.println("No order has been placed.");
+            return;
+        }
+
+        orderStatus = newStatus;
+        System.out.println("Order status updated to: " + orderStatus);
+    }
+
 }

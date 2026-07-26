@@ -6,8 +6,11 @@ class Menu {
     }
 
     void runMenu() {
-        System.out.println("Welcome to HD Chocolate Factory!");
+        System.out.println();
+        System.out.println("Welcome to HD Chocolate Factory!!");
+        System.out.println();
         System.out.println("Please select a option from below");
+        System.out.println();
         while (true) {
             System.out.println("1. Membership Sign in");
             System.out.println("2. Search for a Chocolate");
@@ -35,7 +38,7 @@ class Menu {
             } else if (userSelect == 7) {
                 shop.staffAccess();
             } else if (userSelect == 8) {
-                System.out.println("Thank you for visiting our HD Chocolat ");
+                System.out.println("Thank you for visiting our HD Chocolate shop!!! ");
                 break;
             } else {
                 System.out.println("Invalid number. Please select a number from 1 to 8.");

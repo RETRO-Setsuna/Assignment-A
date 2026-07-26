@@ -1,4 +1,3 @@
-
 class HDChocoShop {
     private Inventory inventory;
     private Shopping shopping;
@@ -36,7 +35,8 @@ class HDChocoShop {
             System.out.println("3. Remove Chocolate");
             System.out.println("4. Search Chocolate");
             System.out.println("5. Change Customer order status");
-            System.out.println("6. Return");
+            System.out.println("6. Sort Chocolate");
+            System.out.println("7. Return");
             System.out.println();
             System.out.print("Select an option: ");
 
@@ -49,18 +49,63 @@ class HDChocoShop {
                 addChocolate();
 
             } else if (staffSelect == 3) {
-                System.out.println("Remove Chocolate"); // remove finish we change it
+                removeChocolate();
 
             } else if (staffSelect == 4) {
                 searchChocolate();
+            } else if (staffSelect == 5) {
+                System.out.println();
+                System.out.println("Update Order Status");
+                System.out.println("1. Confirmed");
+                System.out.println("2. Preparing");
+                System.out.println("3. Ready for Pickup");
+                System.out.println("4. Out for Delivery");
+                System.out.println("5. Complete");
+                System.out.print("Select an option: ");
+
+                int choice = In.nextInt();
+
+                if (choice == 1) {
+                    shopping.staffUpdateStatus(OrderStatus.CONFIRMED);
+                } else if (choice == 2) {
+                    shopping.staffUpdateStatus(OrderStatus.PREPARING);
+                } else if (choice == 3) {
+                    shopping.staffUpdateStatus(OrderStatus.READY_FOR_PICKUP);
+                } else if (choice == 4) {
+                    shopping.staffUpdateStatus(OrderStatus.OUT_FOR_DELIVERY);
+                } else if (choice == 5) {
+                    shopping.staffUpdateStatus(OrderStatus.COMPLETE);
+                } else {
+                    System.out.println("Invalid option.");
+                }
 
             } else if (staffSelect == 6) {
+                SortingABC abc = new SortingABC();
+                SortingPrice price = new SortingPrice();
+
+                System.out.println("Sort Chocolate");
+                System.out.println();
+                System.out.println("1. Alphabetical");
+                System.out.println("2. Price");
+                System.out.println();
+                System.out.print("Select an option: ");
+
+                int choice = In.nextInt();
+
+                if (choice == 1) {
+                    abc.sortChocolate(inventory.getChocolates());
+                } else if (choice == 2) {
+                    price.sortChocolate(inventory.getChocolates());
+                }
+
+            } else if (staffSelect == 7) {
                 running = false;
 
             } else {
                 System.out.println("Invalid option.");
             }
         }
+
     }
 
     void membershipSignIn() {
@@ -80,7 +125,10 @@ class HDChocoShop {
     }
 
     void searchChocolate() {
-        System.out.println("Enter Chocolate name");
+        System.out.println("Search Chocolate");
+        System.out.println();
+
+        System.out.print("Enter chocolate name to search: ");
         String name = In.nextLine();
 
         Chocolate foundChocolate = inventory.searchChocolate(name);
@@ -353,7 +401,8 @@ class HDChocoShop {
 
         String productName = "CUSTOM- " + name;
 
-        Chocolate customChocolate = new Chocolate(productName, name, price, size, sweetness, type, filling, topping);
+        Chocolate customChocolate = new CustomChocolate(productName, name, price, size, sweetness, type, filling,
+                topping);
 
         System.out.println();
         System.out.println("Your chocolate has been created.");
@@ -368,8 +417,7 @@ class HDChocoShop {
     }
 
     void viewOrderStatus() {
-        System.out.println("View Order Status");
-        System.out.println(getStatusMessage());
+        shopping.viewOrderStatus();
     }
 
     void checkout() {
@@ -378,5 +426,48 @@ class HDChocoShop {
 
     void deleteFromCart() {
         shopping.deleteFromCart();
+    }
+
+    void cartMenu() {
+        boolean running = true;
+
+        while (running) {
+            System.out.println();
+            System.out.println("My Cart Menu");
+            System.out.println("1. View Cart");
+            System.out.println("2. Delete From Cart");
+            System.out.println("3. Checkout");
+            System.out.println("4. View Order Status");
+            System.out.println("5. Return");
+            System.out.print("Select an option: ");
+
+            int choice = In.nextInt();
+
+            if (choice == 1) {
+                viewCart();
+            } else if (choice == 2) {
+                deleteFromCart();
+            } else if (choice == 3) {
+                checkout();
+            } else if (choice == 4) {
+                viewOrderStatus();
+            } else if (choice == 5) {
+                running = false;
+            } else {
+                System.out.println("Invalid option.");
+            }
+        }
+    }
+
+    void removeChocolate() {
+        System.out.println("Remove Chocolate");
+        System.out.println();
+
+        inventory.displayChocolate();
+
+        System.out.print("Enter chocolate name to remove: ");
+        String name = In.nextLine();
+
+        inventory.removeChocolate(name);
     }
 }
