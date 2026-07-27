@@ -1,6 +1,8 @@
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 class Users {
     private String name;
@@ -30,6 +32,7 @@ interface Requirment {
 }
 
 class MiniReq implements Requirment {
+
     int miniLen;
 
     MiniReq(int miniLen) {
@@ -40,8 +43,13 @@ class MiniReq implements Requirment {
     public boolean satisfaction(String values) {
         if (values.length() >= miniLen) {
             return true;
+        } else {
+            return false;
+        }
     }
+
 }
+
 
 class logInCredentials {
     private String userTypes;
@@ -68,7 +76,7 @@ class Passwords extends logInCredentials {
     static final int minilent = 8;
     static Requirment requirment = new MiniReq(minilent);
 
-    public Passwords(String value, String userTypes) {
+    Passwords(String userTypes) {
         super(userTypes);
     }
 
@@ -92,5 +100,37 @@ class Passwords extends logInCredentials {
     public String toString() {
         return super.toString();
     }
+    
+}
+
+class Usernames extends logInCredentials {
+
+    Usernames(String userTypes) {
+        super(userTypes);
+    }
+
+    @Override
+    public String getUserTypes() {
+        return super.getUserTypes();
+    }
+
+    @Override
+    public void setUserTypes(String userTypes) {
+        super.setUserTypes(userTypes);
+    }
+    
+}
+
+class listOfUsers {
+    private Map<Usernames, Passwords> users;
+    private List<Usernames> listOfUsers;
+
+    listOfUsers(Map<Usernames, Passwords> users, List<Usernames> listOfUsers) {
+        this.users = new HashMap<>();
+        this.listOfUsers = new ArrayList<>();
+    }
+
+    
+
     
 }
