@@ -4,28 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class Users {
-    private String name;
-    private String phoneNumber;
-
-    Users(String name, String phoneNumber) {
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-    }
-
-    String getName() {
-        return name;
-    }
-
-    String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public String toString() {
-        return "Name: " + name + "    Phone Number: " + phoneNumber;
-    }
-}
-
 
 interface Requirment {
     boolean satisfaction(String values);
@@ -80,9 +58,12 @@ class Passwords extends logInCredentials {
         super(userTypes);
     }
 
-    void passwordchecker() {
-        if (!requirment.satisfaction("12345678")) {
+    boolean passwordchecker() {
+        if (!requirment.satisfaction(getUserTypes())) {
             System.out.println("Passowrd must be longer than 8 characters");
+            return false;
+        } else {
+            return true;
         }
     }
 
@@ -121,16 +102,63 @@ class Usernames extends logInCredentials {
     
 }
 
-class listOfUsers {
-    private Map<Usernames, Passwords> users;
-    private List<Usernames> listOfUsers;
+class Users {
+    private Usernames uName;
+    private Passwords uPass;
 
-    listOfUsers(Map<Usernames, Passwords> users, List<Usernames> listOfUsers) {
-        this.users = new HashMap<>();
-        this.listOfUsers = new ArrayList<>();
+    Users(Usernames uName, Passwords uPass) {
+        this.uName = uName;
+        this.uPass = uPass;
     }
 
-    
+    public Usernames getName() {
+        return uName;
+    }
 
+    public void setUName(Usernames uName) {
+        this.uName = uName;
+    }
+
+    public Passwords getPass() {
+        return uPass;
+    }
+
+    public void setUPass(Passwords uPass) {
+        this.uPass = uPass;
+    }
+
+    public String toString() {
+        return "Name: " + uName + "    Password: " + uPass;
+    }
+}
+
+
+class listOfUsers {
+    private Map<Usernames, Passwords> users;
+    private List<Users> listUsers;
+
+    listOfUsers(Map<Usernames, Passwords> users, List<Users> listOfUsers) {
+        this.users = new HashMap<>();
+        this.listUsers = new ArrayList<>();
+    }
+
+    public void signUp(String uNameStr, String uPassStr) {
+        Usernames username = new Usernames(uNameStr);
+        Passwords password = new Passwords(uPassStr);
+
+        while (true) { 
+            try {
+                if (password.passwordchecker()) {
+                    break;
+                }
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage() + "Make sure password is 8 character long");
+            }    
+        }
+        users.put(username, password);
+        listUsers.add(new Users(username, password));
+        System.out.println("Your account has been created");
+        
+    }
     
 }

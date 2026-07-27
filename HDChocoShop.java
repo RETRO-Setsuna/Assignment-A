@@ -7,7 +7,7 @@ class HDChocoShop {
     HDChocoShop() {
         inventory = new Inventory();
         shopping = new Shopping();
-        user = new Users("Guest", "Not provided");
+        
         memberSignedIn = false;
     }
 
