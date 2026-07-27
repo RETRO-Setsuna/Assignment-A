@@ -1,28 +1,8 @@
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
-class Users {
-    private String name;
-    private String phoneNumber;
-
-    Users(String name, String phoneNumber) {
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-    }
-
-    String getName() {
-        return name;
-    }
-
-    String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public String toString() {
-        return "Name: " + name + "    Phone Number: " + phoneNumber;
-    }
-}
+import java.util.List;
+import java.util.Map;
 
 
 interface Requirment {
@@ -30,6 +10,7 @@ interface Requirment {
 }
 
 class MiniReq implements Requirment {
+
     int miniLen;
 
     MiniReq(int miniLen) {
@@ -40,9 +21,13 @@ class MiniReq implements Requirment {
     public boolean satisfaction(String values) {
         if (values.length() >= miniLen) {
             return true;
+        } else {
+            return false;
+        }
     }
+
 }
-}
+
 class logInCredentials {
     private String userTypes;
 
@@ -68,13 +53,16 @@ class Passwords extends logInCredentials {
     static final int minilent = 8;
     static Requirment requirment = new MiniReq(minilent);
 
-    public Passwords(String value, String userTypes) {
+    Passwords(String userTypes) {
         super(userTypes);
     }
 
-    void passwordchecker() {
-        if (!requirment.satisfaction("12345678")) {
+    boolean passwordchecker() {
+        if (!requirment.satisfaction(getUserTypes())) {
             System.out.println("Passowrd must be longer than 8 characters");
+            return false;
+        } else {
+            return true;
         }
     }
 
@@ -91,6 +79,85 @@ class Passwords extends logInCredentials {
     @Override
     public String toString() {
         return super.toString();
+    }
+    
+}
+
+class Usernames extends logInCredentials {
+
+    Usernames(String userTypes) {
+        super(userTypes);
+    }
+
+    @Override
+    public String getUserTypes() {
+        return super.getUserTypes();
+    }
+
+    @Override
+    public void setUserTypes(String userTypes) {
+        super.setUserTypes(userTypes);
+    }
+    
+}
+
+class Users {
+    private Usernames uName;
+    private Passwords uPass;
+
+    Users(Usernames uName, Passwords uPass) {
+        this.uName = uName;
+        this.uPass = uPass;
+    }
+
+    public Usernames getName() {
+        return uName;
+    }
+
+    public void setUName(Usernames uName) {
+        this.uName = uName;
+    }
+
+    public Passwords getPass() {
+        return uPass;
+    }
+
+    public void setUPass(Passwords uPass) {
+        this.uPass = uPass;
+    }
+
+    public String toString() {
+        return "Name: " + uName + "    Password: " + uPass;
+    }
+}
+
+
+class listOfUsers {
+    private Map<Usernames, Passwords> users;
+    private List<Users> listUsers;
+
+    listOfUsers(Map<Usernames, Passwords> users, List<Users> listOfUsers) {
+        this.users = new HashMap<>();
+        this.listUsers = new ArrayList<>();
+    }
+
+    public void signUp(String uNameStr, String uPassStr) {
+        Usernames username = new Usernames(uNameStr);
+        Passwords password = new Passwords(uPassStr);
+
+        while (true) { 
+            try {
+                if (password.passwordchecker()) {
+                    break;
+                }
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage() + "Make sure password is 8 character long");
+            }    
+        }
+        users.put(username, password);
+        listUsers.add(new Users(username, password));
+        System.out.println("Your account has been created");
+        
     }
     
 }
