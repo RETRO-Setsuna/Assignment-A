@@ -6,5 +6,9 @@ class NormalChocolate extends Chocolate {
 
         super(id, name, price, size, sweetness, type, filling, topping);
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nChocolate Category: Normal Chocolate";
+    }
 }
-//
