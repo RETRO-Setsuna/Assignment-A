@@ -61,12 +61,18 @@ class Shopping {
             return;
         }
 
-        double total = calculateTotal();
+        double originalTotal = calculateTotal();
+        double total = originalTotal;
         double discount = 0;
 
         if (memberSignedIn) {
-            discount = total * 0.1;
-            total = total - discount;
+            total = 0;
+
+            for (Chocolate chocolate : cart) {
+                total = total + chocolate.calculateDiscountPrice();
+            }
+
+            discount = originalTotal - total;
         }
 
         PaymentMethod paymentMethod = choosePaymentMethod();

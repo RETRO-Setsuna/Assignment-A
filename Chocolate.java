@@ -41,7 +41,7 @@ enum OrderStatus {
 
 }
 
-class Chocolate {
+class Chocolate implements Discountable {
     private String productId;
     private String name;
     private double price;
@@ -106,5 +106,10 @@ class Chocolate {
     @Override
     public String toString() {
         return "Product Name:  " + this.name + "  Product Id : " + this.productId + " Price: " + this.price;
+    }
+
+    @Override
+    public double calculateDiscountPrice() {
+        return getPrice() * 0.9;
     }
 }
