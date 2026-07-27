@@ -65,5 +65,32 @@ class logInCredentials {
 }   
 
 class Passwords extends logInCredentials {
+    static final int minilent = 8;
+    static Requirment requirment = new MiniReq(minilent);
+
+    public Passwords(String value, String userTypes) {
+        super(userTypes);
+    }
+
+    void passwordchecker() {
+        if (!requirment.satisfaction("12345678")) {
+            System.out.println("Passowrd must be longer than 8 characters");
+        }
+    }
+
+    @Override
+    public String getUserTypes() {
+        return super.getUserTypes();
+    }
+
+    @Override
+    public void setUserTypes(String userTypes) {
+        super.setUserTypes(userTypes);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
     
 }
