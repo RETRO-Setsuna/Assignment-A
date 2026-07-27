@@ -42,7 +42,7 @@ class MiniReq implements Requirment {
             return true;
     }
 }
-
+}
 class logInCredentials {
     private String userTypes;
 
