@@ -1,3 +1,5 @@
+import java.util.List;
+
 class HDChocoShop {
     private Inventory inventory;
     private Shopping shopping;
@@ -36,7 +38,8 @@ class HDChocoShop {
             System.out.println("4. Search Chocolate");
             System.out.println("5. Change Customer order status");
             System.out.println("6. Sort Chocolate");
-            System.out.println("7. Return");
+            System.out.println("7. Filter Chocolate");
+            System.out.println("8. Return");
             System.out.println();
             System.out.print("Select an option: ");
 
@@ -99,6 +102,8 @@ class HDChocoShop {
                 }
 
             } else if (staffSelect == 7) {
+                filterChocolate();
+            } else if (staffSelect == 8) {
                 running = false;
 
             } else {
@@ -127,17 +132,74 @@ class HDChocoShop {
     void searchChocolate() {
         System.out.println("Search Chocolate");
         System.out.println();
+        System.out.println("1. Search by Name");
+        System.out.println("2. Search by Product ID");
+        System.out.print("Select an option: ");
 
-        System.out.print("Enter chocolate name to search: ");
-        String name = In.nextLine();
+        int choice = In.nextInt();
 
-        Chocolate foundChocolate = inventory.searchChocolate(name);
+        if (choice == 1) {
 
-        if (foundChocolate != null) {
-            System.out.println("Chocolate found:");
-            System.out.println(foundChocolate);
+            System.out.print("Enter chocolate name to search: ");
+            String name = In.nextLine();
+
+            Chocolate foundChocolate = inventory.searchChocolate(name);
+
+            if (foundChocolate != null) {
+                System.out.println("Chocolate found:");
+                System.out.println(foundChocolate);
+                foundChocolate.displayChocolate();
+            } else {
+                System.out.println("Chocolate not found.");
+            }
+
+        } else if (choice == 2) {
+
+            System.out.print("Enter product ID to search: ");
+            String productId = In.nextLine();
+
+            inventory.searchByProductId(productId);
+
         } else {
-            System.out.println("Chocolate not found.");
+            System.out.println("Invalid option.");
+        }
+    }
+
+    void filterChocolate() {
+        System.out.println("Filter Chocolate");
+        System.out.println();
+
+        System.out.println("1. White Chocolate");
+        System.out.println("2. Dark Chocolate");
+        System.out.println("3. Milk Chocolate");
+        System.out.println("4. Cookie and Cream");
+
+        System.out.print("Select an option: ");
+
+        int choice = In.nextInt();
+
+        Types selectedType;
+
+        if (choice == 1) {
+            selectedType = Types.WHITE_CHOCOLATE;
+        } else if (choice == 2) {
+            selectedType = Types.DARK_CHOCOLATE;
+        } else if (choice == 3) {
+            selectedType = Types.MILK_CHOCOLATE;
+        } else {
+            selectedType = Types.COOKIE_AND_CREAM;
+        }
+
+        List<Chocolate> filteredChocolate = inventory.filterByType(selectedType);
+
+        if (filteredChocolate.isEmpty()) {
+            System.out.println("No chocolate found.");
+        } else {
+            for (Chocolate chocolate : filteredChocolate) {
+                System.out.println(chocolate);
+                chocolate.displayChocolate();
+                System.out.println();
+            }
         }
     }
 
