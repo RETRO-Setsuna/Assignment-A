@@ -1,6 +1,4 @@
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -135,9 +133,10 @@ class listOfUsers {
     private List<Users> listUsers;
 
     listOfUsers(Map<Usernames, Passwords> users, List<Users> listOfUsers) {
-        this.users = new HashMap<>();
-        this.listUsers = new ArrayList<>();
+        this.users = users;
+        this.listUsers = listOfUsers;
     }
+    
 
     public void signUp(String uNameStr, String uPassStr) {
         Usernames username = new Usernames(uNameStr);
@@ -147,15 +146,18 @@ class listOfUsers {
             try {
                 if (password.passwordchecker()) {
                     break;
+                } else {
+                    System.out.print("Please try again: ");
+                    password.setUserTypes(In.nextLine());
                 }
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage() + "Make sure password is 8 character long");
-            }
+            }    
         }
         users.put(username, password);
         listUsers.add(new Users(username, password));
         System.out.println("Your account has been created");
 
     }
-
+    
 }
