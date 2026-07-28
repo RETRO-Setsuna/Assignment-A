@@ -1,6 +1,4 @@
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -138,8 +136,8 @@ class listOfUsers {
     private List<Users> listUsers;
 
     listOfUsers(Map<Usernames, Passwords> users, List<Users> listOfUsers) {
-        this.users = new HashMap<>();
-        this.listUsers = new ArrayList<>();
+        this.users = users;
+        this.listUsers = listOfUsers;
     }
     
 
@@ -171,8 +169,6 @@ class listOfUsers {
                 } else {
                     System.out.println("Wrong password or Username, Please try again");
                 }
-            } else {
-                System.out.println("Wrong password or Username, Please try again");
             }
         }
         return temp;

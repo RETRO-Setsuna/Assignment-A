@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 class HDChocoShop {
     private Inventory inventory;
     private Shopping shopping;
@@ -10,11 +14,10 @@ class HDChocoShop {
         shopping = new Shopping();
         
         memberSignedIn = false;
-    }
 
-    Usernames admin = new Usernames("Admin08");
-    Passwords adminPass = new Passwords("123456789a");
-    users.signUp(admin, adminPass);
+        users = new listOfUsers(new HashMap<Usernames,Passwords>() , new ArrayList<>());
+        users.signUp("Admin08", "123456789a");
+    }
 
     void staffAccess() {
         System.out.print("Enter staff PIN: ");
