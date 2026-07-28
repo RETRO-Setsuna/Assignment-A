@@ -1,8 +1,9 @@
 class HDChocoShop {
     private Inventory inventory;
     private Shopping shopping;
-    private Users user;
+
     private boolean memberSignedIn;
+    private listOfUsers users;
 
     HDChocoShop() {
         inventory = new Inventory();
@@ -111,15 +112,34 @@ class HDChocoShop {
     void membershipSignIn() {
         System.out.println("Membership Sign In");
         System.out.println();
-        System.out.print("Enter your name: ");
+        System.out.print("Enter your Username: ");
         String name = In.nextLine();
 
-        System.out.print("Enter your phone number: ");
-        String phoneNumber = In.nextLine();
+        System.out.print("Enter your Password: ");
+        String pass = In.nextLine();
 
-        user = new Users(name, phoneNumber);
-        memberSignedIn = true;
-        System.out.println("Welcome, " + user.getName() + "!");
+        memberSignedIn = users.signIn(name, pass);
+
+
+        System.out.println("Welcome back, " + name + "!");
+        System.out.println("Members can receive 10% discount!");
+        System.out.println();
+    }
+
+    void membershipSignUp() {
+        System.out.println("Membership Sign Up");
+        System.out.println();
+        System.out.println("Create an Username: ");
+        String accName = In.nextLine();
+
+        System.out.println("Create your Password");
+        String accPass = In.nextLine();
+
+        users.signUp(accName, accPass);
+
+        memberSignedIn = users.signIn(accName, accPass);
+
+        System.out.println("Welcome " + accName + "!");
         System.out.println("Members can receive 10% discount!");
         System.out.println();
     }

@@ -160,5 +160,21 @@ class listOfUsers {
         System.out.println("Your account has been created");
         
     }
+
+    public boolean signIn(String accountName, String accountPassword) {
+        boolean temp = false;
+        for (Users u : listUsers) {
+            if (accountName.equals(u.getName())) {
+                if (accountPassword.equals(u.getPass())) {
+                    temp = true;
+                } else {
+                    System.out.println("Wrong password or Username, Please try again");
+                }
+            } else {
+                System.out.println("Wrong password or Username, Please try again");
+            }
+        }
+        return temp;
+    }
     
 }
