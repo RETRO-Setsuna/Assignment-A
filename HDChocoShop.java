@@ -9,7 +9,7 @@ class HDChocoShop {
     HDChocoShop() {
         inventory = new Inventory();
         shopping = new Shopping();
-        
+
         memberSignedIn = false;
     }
 

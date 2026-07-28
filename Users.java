@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 interface Requirment {
     boolean satisfaction(String values);
 }
@@ -47,7 +46,7 @@ class logInCredentials {
         return userTypes;
     }
 
-}   
+}
 
 class Passwords extends logInCredentials {
     static final int minilent = 8;
@@ -80,7 +79,7 @@ class Passwords extends logInCredentials {
     public String toString() {
         return super.toString();
     }
-    
+
 }
 
 class Usernames extends logInCredentials {
@@ -98,7 +97,7 @@ class Usernames extends logInCredentials {
     public void setUserTypes(String userTypes) {
         super.setUserTypes(userTypes);
     }
-    
+
 }
 
 class Users {
@@ -131,7 +130,6 @@ class Users {
     }
 }
 
-
 class listOfUsers {
     private Map<Usernames, Passwords> users;
     private List<Users> listUsers;
@@ -145,19 +143,19 @@ class listOfUsers {
         Usernames username = new Usernames(uNameStr);
         Passwords password = new Passwords(uPassStr);
 
-        while (true) { 
+        while (true) {
             try {
                 if (password.passwordchecker()) {
                     break;
                 }
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage() + "Make sure password is 8 character long");
-            }    
+            }
         }
         users.put(username, password);
         listUsers.add(new Users(username, password));
         System.out.println("Your account has been created");
-        
+
     }
-    
+
 }

@@ -16,10 +16,3 @@ class Main {
         menu.runMenu();
     }
 }
-
-// Implement Method Overriding & Polymorphism
-// Add an Interface
-// Replace HashMap declaration with Map
-// Map<String, Users> members = new HashMap<>();
-// Improve toString() methods
-// Add Filter feature // sub collection
