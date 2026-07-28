@@ -3,8 +3,6 @@ class Main {
 
         HDChocoShop shop = new HDChocoShop();
 
-        shop.
-
         // chocolates for testing
         shop.getInventory().addChocolate(
                 new NormalChocolate("C001", "Milk Chocolate", 10.0, Size.M, Sweetness.FIFTY, Types.MILK_CHOCOLATE,

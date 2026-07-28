@@ -141,6 +141,7 @@ class listOfUsers {
         this.users = new HashMap<>();
         this.listUsers = new ArrayList<>();
     }
+    
 
     public void signUp(String uNameStr, String uPassStr) {
         Usernames username = new Usernames(uNameStr);
@@ -164,8 +165,8 @@ class listOfUsers {
     public boolean signIn(String accountName, String accountPassword) {
         boolean temp = false;
         for (Users u : listUsers) {
-            if (accountName.equals(u.getName())) {
-                if (accountPassword.equals(u.getPass())) {
+            if (accountName.equals(u.getName().getUserTypes())) {
+                if (accountPassword.equals(u.getPass().getUserTypes())) {
                     temp = true;
                 } else {
                     System.out.println("Wrong password or Username, Please try again");
@@ -176,5 +177,4 @@ class listOfUsers {
         }
         return temp;
     }
-    
 }

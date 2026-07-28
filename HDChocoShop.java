@@ -12,6 +12,10 @@ class HDChocoShop {
         memberSignedIn = false;
     }
 
+    Usernames admin = new Usernames("Admin08");
+    Passwords adminPass = new Passwords("123456789a");
+    users.signUp(admin, adminPass);
+
     void staffAccess() {
         System.out.print("Enter staff PIN: ");
         int pin = In.nextInt();
