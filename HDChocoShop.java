@@ -17,7 +17,7 @@ class HDChocoShop {
 
         memberSignedIn = false;
 
-        users = new listOfUsers(new HashMap<Usernames,Passwords>() , new ArrayList<>());
+        users = new listOfUsers(new HashMap<Usernames, Passwords>(), new ArrayList<>());
         users.signUp("Admin08", "123456789a");
     }
 
@@ -131,7 +131,6 @@ class HDChocoShop {
         String pass = In.nextLine();
 
         memberSignedIn = users.signIn(name, pass);
-
 
         System.out.println("Welcome back, " + name + "!");
         System.out.println("Members can receive 10% discount!");
