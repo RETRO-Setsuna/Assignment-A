@@ -145,13 +145,19 @@ class listOfUsers {
         Usernames username = new Usernames(uNameStr);
         Passwords password = new Passwords(uPassStr);
 
-        while (true) { 
+        boolean temp = true;
+
+        while (temp == true) { 
             try {
                 if (password.passwordchecker()) {
                     break;
+                } else {
+                    System.out.print("Please try again: ");
+                    password.setUserTypes(In.nextLine());
                 }
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage() + "Make sure password is 8 character long");
+                temp = false;
             }    
         }
         users.put(username, password);
