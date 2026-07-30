@@ -1,10 +1,12 @@
 class StaffManager {
     private Inventory inventory;
     private Shopping shopping;
+    private ListOfUsers users;
 
-    StaffManager(Inventory inventory, Shopping shopping) {
+    StaffManager(Inventory inventory, Shopping shopping, ListOfUsers users) {
         this.inventory = inventory;
         this.shopping = shopping;
+        this.users = users;
     }
 
     void staffAccess() {
@@ -50,11 +52,25 @@ class StaffManager {
             } else if (staffSelect == 5) {
                 System.out.println();
                 System.out.println("Update Order Status");
+                System.out.println();
+
+                System.out.print("Enter registered member username: ");
+                String username = In.nextLine();
+
+                if (!users.userExists(username)) {
+                    System.out.println("Registered member not found.");
+                    continue;
+                }
+
+                System.out.println("Member found: " + username);
+                System.out.println();
                 System.out.println("1. Confirmed");
                 System.out.println("2. Preparing");
                 System.out.println("3. Ready for Pickup");
                 System.out.println("4. Out for Delivery");
                 System.out.println("5. Complete");
+                System.out.println("6. Return");
+                System.out.println();
                 System.out.print("Select an option: ");
 
                 int choice = In.nextInt();
@@ -69,6 +85,8 @@ class StaffManager {
                     shopping.staffUpdateStatus(OrderStatus.OUT_FOR_DELIVERY);
                 } else if (choice == 5) {
                     shopping.staffUpdateStatus(OrderStatus.COMPLETE);
+                } else if (choice == 6) {
+                    continue;
                 } else {
                     System.out.println("Invalid option.");
                 }

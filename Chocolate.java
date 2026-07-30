@@ -105,7 +105,7 @@ class Chocolate implements Discountable {
 
     @Override
     public String toString() {
-        return "Product Name:  " + this.name + "  Product Id : " + this.productId + " Price: " + this.price;
+        return "Product Name : " + this.name + "\nProduct ID   : " + this.productId + "\nPrice        : $" + this.price;
     }
 
     @Override

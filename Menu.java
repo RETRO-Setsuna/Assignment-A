@@ -6,42 +6,69 @@ class Menu {
     }
 
     void runMenu() {
-        System.out.println();
-        System.out.println("Welcome to HD Chocolate Factory!!!!!!");
-        System.out.println();
-        System.out.println("Please select a option from below");
-        System.out.println();
-        while (true) {
+
+        boolean running = true;
+
+        while (running) {
+
+            System.out.println();
+            System.out.println(" Welcome to HD Choco Shop");
+            System.out.println();
+            System.out.println("1. Customer");
+            System.out.println("2. Staff");
+            System.out.println("3. Exit");
+            System.out.println();
+            System.out.print("Select an option: ");
+
+            int choice = In.nextInt();
+
+            if (choice == 1) {
+                customerMenu();
+            } else if (choice == 2) {
+                shop.staffAccess();
+            } else if (choice == 3) {
+                System.out.println("Thank you for visiting HD Choco Shop!");
+                running = false;
+            } else {
+                System.out.println("Invalid option.");
+            }
+        }
+    }
+
+    void customerMenu() {
+
+        boolean running = true;
+
+        while (running) {
+
+            System.out.println();
             System.out.println();
             System.out.println("1. Membership Sign Up");
-            System.out.println("2. Membership Sign in");
-            System.out.println("3. Search for a Chocolate");
-            System.out.println("4. Build a Chocolate");
-            System.out.println("5. My cart (view / delete / checkout / order status)");
-            System.out.println("6. Staff access");
-            System.out.println("7. Exit");
+            System.out.println("2. Membership Sign In");
+            System.out.println("3. Search Chocolate");
+            System.out.println("4. Build Your Chocolate");
+            System.out.println("5. My Cart");
+            System.out.println("6. Return");
+            System.out.println();
+            System.out.print("Select an option: ");
 
-            int userSelect = In.nextInt();
+            int choice = In.nextInt();
 
-            if (userSelect == 1) {
+            if (choice == 1) {
                 shop.membershipSignUp();
-            } else if (userSelect == 2) {
+            } else if (choice == 2) {
                 shop.membershipSignIn();
-            } else if (userSelect == 3) {
+            } else if (choice == 3) {
                 shop.searchChocolate();
-            } else if (userSelect == 4) {
+            } else if (choice == 4) {
                 shop.buildChocolate();
-            } else if (userSelect == 5) {
+            } else if (choice == 5) {
                 shop.cartMenu();
-            } else if (userSelect == 6) {
-                shop.staffAccess();
-            } else if (userSelect == 7) {
-                System.out.println("Thank you for visiting our HD Chocolate shop!!! ");
-                break;
+            } else if (choice == 6) {
+                running = false;
             } else {
-                System.out.println("Invalid number. Please select a number from 1 to 7.");
+                System.out.println("Invalid option.");
             }
-
         }
     }
 }

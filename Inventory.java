@@ -32,6 +32,7 @@ class Inventory {
 
         for (Chocolate choco : chocolates) {
             System.out.println(choco);
+            System.out.println();
         }
     }
 

@@ -85,11 +85,9 @@ class Users {
         return uName;
     }
 
-
     public Passwords getPass() {
         return uPass;
     }
-
 
     public String toString() {
         return "Name: " + uName + "    Password: " + uPass;
@@ -142,5 +140,14 @@ class ListOfUsers {
             }
         }
         return temp;
+    }
+
+    public boolean userExists(String username) {
+        for (Users user : listUsers) {
+            if (username.equals(user.getName().getUserTypes())) {
+                return true;
+            }
+        }
+        return false;
     }
 }

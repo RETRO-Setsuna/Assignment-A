@@ -12,13 +12,14 @@ class HDChocoShop {
     HDChocoShop() {
         inventory = new Inventory();
         shopping = new Shopping();
-        staffManager = new StaffManager(inventory, shopping);
 
         memberSignedIn = false;
 
         users = new ListOfUsers(
                 new HashMap<Usernames, Passwords>(),
                 new ArrayList<>());
+
+        staffManager = new StaffManager(inventory, shopping, users);
     }
 
     void staffAccess() {
