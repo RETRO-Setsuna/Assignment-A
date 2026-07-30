@@ -19,7 +19,7 @@ class HDChocoShop {
                 new HashMap<Usernames, Passwords>(),
                 new ArrayList<>());
 
-        staffManager = new StaffManager(inventory, shopping, users);
+        staffManager = new StaffManager(inventory, shopping);
     }
 
     void staffAccess() {

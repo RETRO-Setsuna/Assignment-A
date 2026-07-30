@@ -1,12 +1,11 @@
 class StaffManager {
     private Inventory inventory;
     private Shopping shopping;
-    private ListOfUsers users;
 
-    StaffManager(Inventory inventory, Shopping shopping, ListOfUsers users) {
+    StaffManager(Inventory inventory, Shopping shopping) {
         this.inventory = inventory;
         this.shopping = shopping;
-        this.users = users;
+
     }
 
     void staffAccess() {
@@ -54,15 +53,6 @@ class StaffManager {
                 System.out.println("Update Order Status");
                 System.out.println();
 
-                System.out.print("Enter registered member username: ");
-                String username = In.nextLine();
-
-                if (!users.userExists(username)) {
-                    System.out.println("Registered member not found.");
-                    continue;
-                }
-
-                System.out.println("Member found: " + username);
                 System.out.println();
                 System.out.println("1. Confirmed");
                 System.out.println("2. Preparing");
