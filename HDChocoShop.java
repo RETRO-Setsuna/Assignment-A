@@ -272,6 +272,32 @@ class HDChocoShop {
         shopping.addToCart(customChocolate);
     }
 
+    void sortChocolate() {
+        SortingABC abc = new SortingABC();
+        SortingPrice price = new SortingPrice();
+
+        System.out.println();
+        System.out.println("Sort Chocolate");
+        System.out.println();
+        System.out.println("1. Alphabetical");
+        System.out.println("2. Price");
+        System.out.println("3. Return");
+        System.out.println();
+        System.out.print("Select an option: ");
+
+        int choice = In.nextInt();
+
+        if (choice == 1) {
+            abc.sortChocolate(inventory.getChocolates());
+        } else if (choice == 2) {
+            price.sortChocolate(inventory.getChocolates());
+        } else if (choice == 3) {
+            return;
+        } else {
+            System.out.println("Invalid option.");
+        }
+    }
+
     void viewCart() {
         shopping.displayCart();
     }

@@ -11,6 +11,7 @@ class SortingABC {
 
         for (Chocolate c : chocolates) {
             System.out.println(c);
+            System.out.println();
         }
     }
 }
@@ -24,6 +25,7 @@ class SortingPrice {
 
         for (Chocolate c : chocolates) {
             System.out.println(c);
+            System.out.println();
         }
     }
 }

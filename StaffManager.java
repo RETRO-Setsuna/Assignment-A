@@ -30,8 +30,7 @@ class StaffManager {
             System.out.println("3. Remove Chocolate");
             System.out.println("4. Search Chocolate");
             System.out.println("5. Change Customer order status");
-            System.out.println("6. Sort Chocolate");
-            System.out.println("7. Return");
+            System.out.println("6. Return");
             System.out.println();
             System.out.print("Select an option: ");
 
@@ -82,25 +81,6 @@ class StaffManager {
                 }
 
             } else if (staffSelect == 6) {
-                SortingABC abc = new SortingABC();
-                SortingPrice price = new SortingPrice();
-
-                System.out.println("Sort Chocolate");
-                System.out.println();
-                System.out.println("1. Alphabetical");
-                System.out.println("2. Price");
-                System.out.println();
-                System.out.print("Select an option: ");
-
-                int choice = In.nextInt();
-
-                if (choice == 1) {
-                    abc.sortChocolate(inventory.getChocolates());
-                } else if (choice == 2) {
-                    price.sortChocolate(inventory.getChocolates());
-                }
-
-            } else if (staffSelect == 7) {
                 running = false;
 
             } else {

@@ -4,10 +4,12 @@ import java.util.List;
 class Shopping {
     private List<Chocolate> cart;
     private OrderStatus orderStatus;
+    private List<Chocolate> currentOrder;
 
     Shopping() {
         cart = new ArrayList<Chocolate>();
         orderStatus = OrderStatus.NO_ORDER;
+        currentOrder = new ArrayList<Chocolate>();
     }
 
     void addToCart(Chocolate chocolate) {
@@ -44,7 +46,8 @@ class Shopping {
 
         displayCart();
 
-        System.out.print("Enter chocolate name: ");
+        System.out.println();
+        System.out.print("Enter chocolate you want to delete name: ");
         String name = In.nextLine();
 
         for (int i = 0; i < cart.size(); i++) {
@@ -98,15 +101,32 @@ class Shopping {
         System.out.println();
         System.out.println("Order placed successfully.");
         System.out.println();
+        currentOrder.clear();
+
+        for (Chocolate chocolate : cart) {
+            currentOrder.add(chocolate);
+        }
+
         cart.clear();
     }
 
     void viewOrderStatus() {
         if (orderStatus == OrderStatus.NO_ORDER) {
             System.out.println("No order has been placed.");
-        } else {
-            System.out.println("Current Order Status: " + orderStatus);
+            return;
         }
+
+        System.out.println();
+        System.out.println("Order Details");
+        System.out.println();
+
+        for (Chocolate chocolate : currentOrder) {
+            System.out.println(chocolate);
+            chocolate.displayChocolate();
+            System.out.println();
+        }
+
+        System.out.println("Current Order Status: " + orderStatus);
     }
 
     double calculateTotal() {
