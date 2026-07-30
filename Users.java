@@ -2,11 +2,11 @@
 import java.util.List;
 import java.util.Map;
 
-interface Requirment {
+interface Requirement {
     boolean satisfaction(String values);
 }
 
-class MiniReq implements Requirment {
+class MiniReq implements Requirement {
 
     int miniLen;
 
@@ -47,53 +47,27 @@ class LogInCredentials {
 }
 
 class Passwords extends LogInCredentials {
-    static final int minilent = 8;
-    static Requirment requirment = new MiniReq(minilent);
+    static final int miniLength = 8;
+    static Requirement requirement = new MiniReq(miniLength);
 
     Passwords(String userTypes) {
         super(userTypes);
     }
 
     boolean passwordchecker() {
-        if (!requirment.satisfaction(getUserTypes())) {
-            System.out.println("Passowrd must be longer than 8 characters");
+        if (!requirement.satisfaction(getUserTypes())) {
+            System.out.println("Password must be longer than 8 characters");
             return false;
         } else {
             return true;
         }
     }
-
-    @Override
-    public String getUserTypes() {
-        return super.getUserTypes();
-    }
-
-    @Override
-    public void setUserTypes(String userTypes) {
-        super.setUserTypes(userTypes);
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
-    }
-
 }
 
 class Usernames extends LogInCredentials {
 
     Usernames(String userTypes) {
         super(userTypes);
-    }
-
-    @Override
-    public String getUserTypes() {
-        return super.getUserTypes();
-    }
-
-    @Override
-    public void setUserTypes(String userTypes) {
-        super.setUserTypes(userTypes);
     }
 
 }

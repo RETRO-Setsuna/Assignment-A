@@ -16,11 +16,9 @@ class Menu {
             System.out.println("2. Membership Sign in");
             System.out.println("3. Search for a Chocolate");
             System.out.println("4. Build a Chocolate");
-            System.out.println("5. My cart");
-            System.out.println("6. Checkout");
-            System.out.println("7. View Order Status");
-            System.out.println("8. Staff access");
-            System.out.println("9. Exit");
+            System.out.println("5. My cart (view / delete / checkout / order status)");
+            System.out.println("6. Staff access");
+            System.out.println("7. Exit");
 
             int userSelect = In.nextInt();
 
@@ -33,21 +31,16 @@ class Menu {
             } else if (userSelect == 4) {
                 shop.buildChocolate();
             } else if (userSelect == 5) {
-                shop.viewCart();
+                shop.cartMenu();
             } else if (userSelect == 6) {
-                shop.checkout();
-            } else if (userSelect == 7) {
-                shop.viewOrderStatus();
-            } else if (userSelect == 8) {
                 shop.staffAccess();
-            } else if (userSelect == 9) {
+            } else if (userSelect == 7) {
                 System.out.println("Thank you for visiting our HD Chocolate shop!!! ");
                 break;
             } else {
-                System.out.println("Invalid number. Please select a number from 1 to 9.");
+                System.out.println("Invalid number. Please select a number from 1 to 7.");
             }
 
         }
-
     }
 }
