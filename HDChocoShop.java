@@ -1,22 +1,21 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 class HDChocoShop {
     private Inventory inventory;
     private Shopping shopping;
 
     private boolean memberSignedIn;
-    private listOfUsers users;
+    private ListOfUsers users;
 
     HDChocoShop() {
         inventory = new Inventory();
         shopping = new Shopping();
-        
+
         memberSignedIn = false;
 
-        users = new listOfUsers(new HashMap<Usernames, Passwords>(), new ArrayList<>());
-        users.signUp("Admin08", "123456789a");
+        users = new ListOfUsers(new HashMap<Usernames, Passwords>(), new ArrayList<>());
+        users.SignUp("Admin08", "123456789a");
     }
 
     void staffAccess() {
@@ -125,7 +124,7 @@ class HDChocoShop {
         System.out.print("Enter your Password: ");
         String pass = In.nextLine();
 
-        memberSignedIn = users.signIn(name, pass);
+        memberSignedIn = users.SignIn(name, pass);
 
         System.out.println("Welcome back, " + name + "!");
         System.out.println("Members can receive 10% discount!");
@@ -141,9 +140,9 @@ class HDChocoShop {
         System.out.println("Create your Password");
         String accPass = In.nextLine();
 
-        users.signUp(accName, accPass);
+        users.SignUp(accName, accPass);
 
-        memberSignedIn = users.signIn(accName, accPass);
+        memberSignedIn = users.SignIn(accName, accPass);
 
         System.out.println("Welcome " + accName + "!");
         System.out.println("Members can receive 10% discount!");

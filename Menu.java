@@ -44,7 +44,7 @@ class Menu {
                 System.out.println("Thank you for visiting our HD Chocolate shop!!! ");
                 break;
             } else {
-                System.out.println("Invalid number. Please select a number from 1 to 8.");
+                System.out.println("Invalid number. Please select a number from 1 to 9.");
             }
 
         }

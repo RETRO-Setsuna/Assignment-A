@@ -2,7 +2,6 @@
 import java.util.List;
 import java.util.Map;
 
-
 interface Requirment {
     boolean satisfaction(String values);
 }
@@ -26,11 +25,10 @@ class MiniReq implements Requirment {
 
 }
 
-
-class logInCredentials {
+class LogInCredentials {
     private String userTypes;
 
-    logInCredentials(String userTypes) {
+    LogInCredentials(String userTypes) {
         this.userTypes = userTypes;
     }
 
@@ -46,9 +44,9 @@ class logInCredentials {
         return userTypes;
     }
 
-}   
+}
 
-class Passwords extends logInCredentials {
+class Passwords extends LogInCredentials {
     static final int minilent = 8;
     static Requirment requirment = new MiniReq(minilent);
 
@@ -79,10 +77,10 @@ class Passwords extends logInCredentials {
     public String toString() {
         return super.toString();
     }
-    
+
 }
 
-class Usernames extends logInCredentials {
+class Usernames extends LogInCredentials {
 
     Usernames(String userTypes) {
         super(userTypes);
@@ -97,7 +95,7 @@ class Usernames extends logInCredentials {
     public void setUserTypes(String userTypes) {
         super.setUserTypes(userTypes);
     }
-    
+
 }
 
 class Users {
@@ -130,24 +128,22 @@ class Users {
     }
 }
 
-
-class listOfUsers {
+class ListOfUsers {
     private Map<Usernames, Passwords> users;
     private List<Users> listUsers;
 
-    listOfUsers(Map<Usernames, Passwords> users, List<Users> listOfUsers) {
+    ListOfUsers(Map<Usernames, Passwords> users, List<Users> listOfUsers) {
         this.users = users;
         this.listUsers = listOfUsers;
     }
-    
 
-    public void signUp(String uNameStr, String uPassStr) {
+    public void SignUp(String uNameStr, String uPassStr) {
         Usernames username = new Usernames(uNameStr);
         Passwords password = new Passwords(uPassStr);
 
         boolean temp = true;
 
-        while (temp == true) { 
+        while (temp == true) {
             try {
                 if (password.passwordchecker()) {
                     break;
@@ -158,15 +154,15 @@ class listOfUsers {
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage() + "Make sure password is 8 character long");
                 temp = false;
-            }    
+            }
         }
         users.put(username, password);
         listUsers.add(new Users(username, password));
         System.out.println("Your account has been created");
-        
+
     }
 
-    public boolean signIn(String accountName, String accountPassword) {
+    public boolean SignIn(String accountName, String accountPassword) {
         boolean temp = false;
         for (Users u : listUsers) {
             if (accountName.equals(u.getName().getUserTypes())) {
