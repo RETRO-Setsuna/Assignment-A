@@ -85,17 +85,11 @@ class Users {
         return uName;
     }
 
-    public void setUName(Usernames uName) {
-        this.uName = uName;
-    }
 
     public Passwords getPass() {
         return uPass;
     }
 
-    public void setUPass(Passwords uPass) {
-        this.uPass = uPass;
-    }
 
     public String toString() {
         return "Name: " + uName + "    Password: " + uPass;

@@ -7,11 +7,12 @@ class Menu {
 
     void runMenu() {
         System.out.println();
-        System.out.println("Welcome to HD Chocolate Factory!!");
+        System.out.println("Welcome to HD Chocolate Factory!!!!!!");
         System.out.println();
         System.out.println("Please select a option from below");
         System.out.println();
         while (true) {
+            System.out.println();
             System.out.println("1. Membership Sign Up");
             System.out.println("2. Membership Sign in");
             System.out.println("3. Search for a Chocolate");

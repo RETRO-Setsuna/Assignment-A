@@ -21,7 +21,9 @@ class Shopping {
     }
 
     void displayCart() {
+        System.out.println();
         System.out.println("My Cart");
+        System.out.println();
 
         if (cart.isEmpty()) {
             System.out.println("Your cart is empty.");
@@ -88,10 +90,12 @@ class Shopping {
         } else {
             System.out.println("Sign in as a member to receive a 10% discount.");
         }
-
+        System.out.println();
         System.out.println("Total Price: $" + total);
+        System.out.println();
         System.out.println("Payment Method: " + paymentMethod);
         System.out.println("Delivery Option: " + delivery);
+        System.out.println();
         System.out.println("Order placed successfully.");
         System.out.println();
         cart.clear();
@@ -118,9 +122,11 @@ class Shopping {
     PaymentMethod choosePaymentMethod() {
         System.out.println();
         System.out.println("Choose Payment Method");
+        System.out.println();
         System.out.println("1. Cash");
         System.out.println("2. Card");
         System.out.println("3. Transfer");
+        System.out.println();
         System.out.print("Select an option: ");
 
         int choice = In.nextInt();
@@ -140,8 +146,10 @@ class Shopping {
     Delivery chooseDelivery() {
         System.out.println();
         System.out.println("Choose Delivery Option");
+        System.out.println();
         System.out.println("1. Pick Up");
         System.out.println("2. Delivery");
+        System.out.println();
         System.out.print("Select an option: ");
 
         int choice = In.nextInt();

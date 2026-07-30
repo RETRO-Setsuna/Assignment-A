@@ -7,7 +7,7 @@ enum Delivery {
 }
 
 enum Fillings {
-    CARAMEL, NUTS, FRUITS;
+    NONE, CARAMEL, NUTS, FRUITS;
 }
 
 enum Sweetness {
@@ -25,7 +25,7 @@ enum Sweetness {
 }
 
 enum Toppings {
-    FRUITS, OREO, CANDY_POP, EXTRA_CHOCOLATE;
+    NONE, FRUITS, OREO, CANDY_POP, EXTRA_CHOCOLATE;
 }
 
 enum Types {
