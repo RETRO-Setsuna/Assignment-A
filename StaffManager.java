@@ -36,6 +36,12 @@ class StaffManager {
 
             int staffSelect = In.nextInt();
 
+            while (staffSelect < 1 || staffSelect > 6) {
+                System.out.println("Invalid option. Please select from 1 to 6.");
+                System.out.print("Select an option: ");
+
+                staffSelect = In.nextInt();
+            }
             if (staffSelect == 1) {
                 inventory.displayChocolate();
 
@@ -47,6 +53,7 @@ class StaffManager {
 
             } else if (staffSelect == 4) {
                 searchChocolate();
+
             } else if (staffSelect == 5) {
                 System.out.println();
                 System.out.println("Update Order Status");
@@ -64,6 +71,11 @@ class StaffManager {
 
                 int choice = In.nextInt();
 
+                while (choice < 1 || choice > 6) {
+                    System.out.println("Invalid option. Please select from 1 to 6.");
+                    System.out.print("Select an option: ");
+                    choice = In.nextInt();
+                }
                 if (choice == 1) {
                     shopping.staffUpdateStatus(OrderStatus.CONFIRMED);
                 } else if (choice == 2) {
@@ -76,15 +88,11 @@ class StaffManager {
                     shopping.staffUpdateStatus(OrderStatus.COMPLETE);
                 } else if (choice == 6) {
                     continue;
-                } else {
-                    System.out.println("Invalid option.");
                 }
 
             } else if (staffSelect == 6) {
                 running = false;
 
-            } else {
-                System.out.println("Invalid option.");
             }
         }
 
@@ -94,10 +102,10 @@ class StaffManager {
         System.out.println("Search Chocolate");
         System.out.println();
 
-        System.out.print("Enter chocolate name to search: ");
-        String name = In.nextLine();
+        System.out.print("Enter Product ID to search: ");
+        String productId = In.nextLine();
 
-        Chocolate foundChocolate = inventory.searchChocolate(name);
+        Chocolate foundChocolate = inventory.searchChocolateById(productId);
 
         if (foundChocolate != null) {
             System.out.println("Chocolate found:");
@@ -108,129 +116,202 @@ class StaffManager {
     }
 
     void addChocolate() {
-        System.out.print("Enter product ID: ");
-        String id = In.nextLine();
-
-        System.out.print("Enter chocolate name: ");
-        String name = In.nextLine();
-
-        System.out.print("Enter price: ");
-        double price = In.nextDouble();
-
         System.out.println();
-        System.out.println("Choose Chocolate Type");
-        System.out.println("1. White Chocolate");
-        System.out.println("2. Dark Chocolate");
-        System.out.println("3. Milk Chocolate");
-        System.out.println("4. Cookie and Cream");
-        System.out.print("Select an option: ");
+        System.out.println("Add Chocolate");
+        System.out.println();
 
-        int typeChoice = In.nextInt();
+        String id;
 
-        Types type;
+        while (true) {
+            System.out.print("Enter Product ID: ");
+            id = In.nextLine();
 
-        if (typeChoice == 1) {
-            type = Types.WHITE_CHOCOLATE;
-        } else if (typeChoice == 2) {
-            type = Types.DARK_CHOCOLATE;
-        } else if (typeChoice == 3) {
-            type = Types.MILK_CHOCOLATE;
-        } else {
-            type = Types.COOKIE_AND_CREAM;
+            if (id.isEmpty()) {
+                System.out.println("Product ID cannot be empty.");
+            } else if (inventory.productIdExists(id)) {
+                System.out.println("Product ID already exists.");
+            } else {
+                break;
+            }
         }
 
-        System.out.println();
-        System.out.println("Choose Size");
-        System.out.println("1. Small");
-        System.out.println("2. Medium");
-        System.out.println("3. Large");
-        System.out.println("4. Extra Large");
-        System.out.print("Select an option: ");
+        String name;
 
-        int sizeChoice = In.nextInt();
+        while (true) {
+            System.out.print("Enter chocolate name: ");
+            name = In.nextLine();
 
-        Size size;
-
-        if (sizeChoice == 1) {
-            size = Size.S;
-        } else if (sizeChoice == 2) {
-            size = Size.M;
-        } else if (sizeChoice == 3) {
-            size = Size.L;
-        } else {
-            size = Size.XL;
+            if (name.isEmpty()) {
+                System.out.println("Chocolate name cannot be empty.");
+            } else if (inventory.chocolateNameExists(name)) {
+                System.out.println("Chocolate name already exists.");
+            } else {
+                break;
+            }
         }
 
-        System.out.println();
-        System.out.println("Choose Sweetness");
-        System.out.println("1. 0%");
-        System.out.println("2. 25%");
-        System.out.println("3. 50%");
-        System.out.println("4. 75%");
-        System.out.println("5. 100%");
-        System.out.print("Select an option: ");
+        double price = 0;
 
-        int sweetnessChoice = In.nextInt();
+        while (price <= 0) {
+            System.out.print("Enter price: ");
+            price = In.nextDouble();
 
-        Sweetness sweetness;
-
-        if (sweetnessChoice == 1) {
-            sweetness = Sweetness.ZERO;
-        } else if (sweetnessChoice == 2) {
-            sweetness = Sweetness.TWENTY_FIVE;
-        } else if (sweetnessChoice == 3) {
-            sweetness = Sweetness.FIFTY;
-        } else if (sweetnessChoice == 4) {
-            sweetness = Sweetness.SEVENTY_FIVE;
-        } else {
-            sweetness = Sweetness.HUNDRED;
+            if (price <= 0) {
+                System.out.println("Price must be greater than 0.");
+            }
         }
 
-        System.out.println();
-        System.out.println("Choose Filling");
-        System.out.println("1. Caramel");
-        System.out.println("2. Nuts");
-        System.out.println("3. Fruits");
-        System.out.print("Select an option: ");
+        Types type = null;
 
-        int fillingChoice = In.nextInt();
+        while (type == null) {
+            System.out.println();
+            System.out.println("Choose Chocolate Type");
+            System.out.println();
+            System.out.println("1. White Chocolate");
+            System.out.println("2. Dark Chocolate");
+            System.out.println("3. Milk Chocolate");
+            System.out.println("4. Cookie and Cream");
+            System.out.println();
+            System.out.print("Select an option: ");
 
-        Fillings filling;
+            int typeChoice = In.nextInt();
 
-        if (fillingChoice == 1) {
-            filling = Fillings.CARAMEL;
-        } else if (fillingChoice == 2) {
-            filling = Fillings.NUTS;
-        } else {
-            filling = Fillings.FRUITS;
+            if (typeChoice == 1) {
+                type = Types.WHITE_CHOCOLATE;
+            } else if (typeChoice == 2) {
+                type = Types.DARK_CHOCOLATE;
+            } else if (typeChoice == 3) {
+                type = Types.MILK_CHOCOLATE;
+            } else if (typeChoice == 4) {
+                type = Types.COOKIE_AND_CREAM;
+            } else {
+                System.out.println("Invalid option. Please choose again.");
+            }
         }
 
-        System.out.println();
-        System.out.println("Choose Topping");
-        System.out.println("1. Fruits");
-        System.out.println("2. Oreo");
-        System.out.println("3. Candy Pop");
-        System.out.println("4. Extra Chocolate");
-        System.out.print("Select an option: ");
+        Size size = null;
 
-        int toppingChoice = In.nextInt();
+        while (size == null) {
+            System.out.println();
+            System.out.println("Choose Size");
+            System.out.println();
+            System.out.println("1. Small");
+            System.out.println("2. Medium");
+            System.out.println("3. Large");
+            System.out.println("4. Extra Large");
+            System.out.println();
+            System.out.print("Select an option: ");
 
-        Toppings topping;
+            int sizeChoice = In.nextInt();
 
-        if (toppingChoice == 1) {
-            topping = Toppings.FRUITS;
-        } else if (toppingChoice == 2) {
-            topping = Toppings.OREO;
-        } else if (toppingChoice == 3) {
-            topping = Toppings.CANDY_POP;
-        } else {
-            topping = Toppings.EXTRA_CHOCOLATE;
+            if (sizeChoice == 1) {
+                size = Size.S;
+            } else if (sizeChoice == 2) {
+                size = Size.M;
+            } else if (sizeChoice == 3) {
+                size = Size.L;
+            } else if (sizeChoice == 4) {
+                size = Size.XL;
+            } else {
+                System.out.println("Invalid option. Please choose again.");
+            }
         }
 
-        inventory.addChocolate(id, name, price, size, sweetness, type, filling, topping);
+        Sweetness sweetness = null;
 
+        while (sweetness == null) {
+            System.out.println();
+            System.out.println("Choose Sweetness");
+            System.out.println();
+            System.out.println("1. 0%");
+            System.out.println("2. 25%");
+            System.out.println("3. 50%");
+            System.out.println("4. 75%");
+            System.out.println("5. 100%");
+            System.out.println();
+            System.out.print("Select an option: ");
+
+            int sweetnessChoice = In.nextInt();
+
+            if (sweetnessChoice == 1) {
+                sweetness = Sweetness.ZERO;
+            } else if (sweetnessChoice == 2) {
+                sweetness = Sweetness.TWENTY_FIVE;
+            } else if (sweetnessChoice == 3) {
+                sweetness = Sweetness.FIFTY;
+            } else if (sweetnessChoice == 4) {
+                sweetness = Sweetness.SEVENTY_FIVE;
+            } else if (sweetnessChoice == 5) {
+                sweetness = Sweetness.HUNDRED;
+            } else {
+                System.out.println("Invalid option. Please choose again.");
+            }
+        }
+
+        Fillings filling = null;
+
+        while (filling == null) {
+            System.out.println();
+            System.out.println("Choose Filling");
+            System.out.println();
+            System.out.println("1. None");
+            System.out.println("2. Caramel");
+            System.out.println("3. Nuts");
+            System.out.println("4. Fruits");
+            System.out.println();
+            System.out.print("Select an option: ");
+
+            int fillingChoice = In.nextInt();
+
+            if (fillingChoice == 1) {
+                filling = Fillings.NONE;
+            } else if (fillingChoice == 2) {
+                filling = Fillings.CARAMEL;
+            } else if (fillingChoice == 3) {
+                filling = Fillings.NUTS;
+            } else if (fillingChoice == 4) {
+                filling = Fillings.FRUITS;
+            } else {
+                System.out.println("Invalid option. Please choose again.");
+            }
+        }
+
+        Toppings topping = null;
+
+        while (topping == null) {
+            System.out.println();
+            System.out.println("Choose Topping");
+            System.out.println();
+            System.out.println("1. None");
+            System.out.println("2. Fruits");
+            System.out.println("3. Oreo");
+            System.out.println("4. Candy Pop");
+            System.out.println("5. Extra Chocolate");
+            System.out.println();
+            System.out.print("Select an option: ");
+
+            int toppingChoice = In.nextInt();
+
+            if (toppingChoice == 1) {
+                topping = Toppings.NONE;
+            } else if (toppingChoice == 2) {
+                topping = Toppings.FRUITS;
+            } else if (toppingChoice == 3) {
+                topping = Toppings.OREO;
+            } else if (toppingChoice == 4) {
+                topping = Toppings.CANDY_POP;
+            } else if (toppingChoice == 5) {
+                topping = Toppings.EXTRA_CHOCOLATE;
+            } else {
+                System.out.println("Invalid option. Please choose again.");
+            }
+        }
+
+        inventory.addChocolate(
+                id, name, price, size, sweetness, type, filling, topping);
+
+        System.out.println();
         System.out.println("Chocolate added successfully.");
-
     }
 
     void removeChocolate() {
@@ -239,9 +320,9 @@ class StaffManager {
 
         inventory.displayChocolate();
 
-        System.out.print("Enter chocolate name to remove: ");
-        String name = In.nextLine();
+        System.out.print("Enter Product ID to remove: ");
+        String productId = In.nextLine();
 
-        inventory.removeChocolate(name);
+        inventory.removeChocolate(productId);
     }
 }

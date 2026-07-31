@@ -140,47 +140,51 @@ class Shopping {
     }
 
     PaymentMethod choosePaymentMethod() {
-        System.out.println();
-        System.out.println("Choose Payment Method");
-        System.out.println();
-        System.out.println("1. Cash");
-        System.out.println("2. Card");
-        System.out.println("3. Transfer");
-        System.out.println();
-        System.out.print("Select an option: ");
+        while (true) {
 
-        int choice = In.nextInt();
+            System.out.println();
+            System.out.println("Choose Payment Method");
+            System.out.println();
+            System.out.println("1. Cash");
+            System.out.println("2. Card");
+            System.out.println("3. Transfer");
+            System.out.println();
+            System.out.print("Select an option: ");
 
-        if (choice == 1) {
-            return PaymentMethod.CASH;
-        } else if (choice == 2) {
-            return PaymentMethod.CARD;
-        } else if (choice == 3) {
-            return PaymentMethod.TRANSFER;
-        } else {
-            System.out.println("Invalid option. Transfer selected.");
-            return PaymentMethod.TRANSFER;
+            int choice = In.nextInt();
+
+            if (choice == 1) {
+                return PaymentMethod.CASH;
+            } else if (choice == 2) {
+                return PaymentMethod.CARD;
+            } else if (choice == 3) {
+                return PaymentMethod.TRANSFER;
+            } else {
+                System.out.println("Invalid option. Please select again.");
+            }
         }
     }
 
     Delivery chooseDelivery() {
-        System.out.println();
-        System.out.println("Choose Delivery Option");
-        System.out.println();
-        System.out.println("1. Pick Up");
-        System.out.println("2. Delivery");
-        System.out.println();
-        System.out.print("Select an option: ");
+        while (true) {
 
-        int choice = In.nextInt();
+            System.out.println();
+            System.out.println("Choose Delivery Option");
+            System.out.println();
+            System.out.println("1. Pick Up");
+            System.out.println("2. Delivery");
+            System.out.println();
+            System.out.print("Select an option: ");
 
-        if (choice == 1) {
-            return Delivery.PICK_UP;
-        } else if (choice == 2) {
-            return Delivery.DELIVERY;
-        } else {
-            System.out.println("Invalid option. Pick up selected.");
-            return Delivery.PICK_UP;
+            int choice = In.nextInt();
+
+            if (choice == 1) {
+                return Delivery.PICK_UP;
+            } else if (choice == 2) {
+                return Delivery.DELIVERY;
+            } else {
+                System.out.println("Invalid option. Please choose again.");
+            }
         }
     }
 

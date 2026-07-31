@@ -41,7 +41,7 @@ class HDChocoShop {
         System.out.print("Enter your Password: ");
         String pass = In.nextLine();
 
-        memberSignedIn = users.SignIn(name, pass);
+        memberSignedIn = users.signIn(name, pass);
 
         if (memberSignedIn) {
             System.out.println("Welcome back, " + name + "!");
@@ -59,9 +59,9 @@ class HDChocoShop {
         System.out.print("Create your Password: ");
         String accPass = In.nextLine();
 
-        users.SignUp(accName, accPass);
+        users.signUp(accName, accPass);
 
-        memberSignedIn = users.SignIn(accName, accPass);
+        memberSignedIn = users.signIn(accName, accPass);
 
         System.out.println("Welcome " + accName + "!");
         System.out.println("Members can receive 10% discount!");
@@ -76,7 +76,7 @@ class HDChocoShop {
         System.out.print("Enter chocolate name to search: ");
         String name = In.nextLine();
 
-        Chocolate foundChocolate = inventory.searchChocolate(name);
+        Chocolate foundChocolate = inventory.searchChocolateByName(name);
 
         if (foundChocolate != null) {
             System.out.println("Chocolate found:");
@@ -349,8 +349,6 @@ class HDChocoShop {
     }
 
     void filterChocolate() {
-        System.out.println();
-        System.out.println("Filter Chocolate");
         System.out.println();
         System.out.println("1. Filter by Type");
         System.out.println("2. Filter by Size");

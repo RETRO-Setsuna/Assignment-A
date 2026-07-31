@@ -21,7 +21,11 @@ class Menu {
             System.out.print("Select an option: ");
 
             int choice = In.nextInt();
-
+            while (choice < 1 || choice > 3) {
+                System.out.println("Invalid option. Please select from 1 to 3.");
+                System.out.print("Select an option: ");
+                choice = In.nextInt();
+            }
             if (choice == 1) {
                 customerMenu();
             } else if (choice == 2) {
@@ -29,8 +33,6 @@ class Menu {
             } else if (choice == 3) {
                 System.out.println("Thank you for visiting HD Choco Shop!");
                 running = false;
-            } else {
-                System.out.println("Invalid option.");
             }
         }
     }
@@ -56,6 +58,12 @@ class Menu {
 
             int choice = In.nextInt();
 
+            while (choice < 1 || choice > 8) {
+                System.out.println("Invalid option. Please select from 1 to 8.");
+                System.out.print("Select an option: ");
+                choice = In.nextInt();
+            }
+
             if (choice == 1) {
                 shop.membershipSignUp();
             } else if (choice == 2) {
@@ -65,15 +73,13 @@ class Menu {
             } else if (choice == 4) {
                 shop.sortChocolate();
             } else if (choice == 5) {
-                shop.filterChocolateByType();
+                shop.filterChocolate();
             } else if (choice == 6) {
                 shop.buildChocolate();
             } else if (choice == 7) {
                 shop.cartMenu();
             } else if (choice == 8) {
                 running = false;
-            } else {
-                System.out.println("Invalid option.");
             }
         }
     }

@@ -28,7 +28,26 @@ class Inventory {
         chocolateMap.put(c.getProductId(), c);
     }
 
+    boolean productIdExists(String productId) {
+        return chocolateMap.containsKey(productId);
+    }
+
+    boolean chocolateNameExists(String name) {
+        for (Chocolate chocolate : chocolates) {
+            if (chocolate.getName().equals(name)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     void displayChocolate() {
+
+        if (chocolates.isEmpty()) {
+            System.out.println("No chocolates in inventory.");
+            return;
+        }
 
         for (Chocolate choco : chocolates) {
             System.out.println(choco);
@@ -36,12 +55,19 @@ class Inventory {
         }
     }
 
-    Chocolate searchChocolate(String chocoName) {
-        for (Chocolate c : chocolates) {
-            if (chocoName.equals(c.getName())) {
-                return c;
+    Chocolate searchChocolateById(String productId) {
+        return chocolateMap.get(productId);
+    }
+
+    Chocolate searchChocolateByName(String name) {
+
+        for (Chocolate chocolate : chocolates) {
+
+            if (chocolate.getName().equals(name)) {
+                return chocolate;
             }
         }
+
         return null;
     }
 
@@ -49,21 +75,20 @@ class Inventory {
         return chocolates;
     }
 
-    void removeChocolate(String chocoName) {
-        for (int i = 0; i < chocolates.size(); i++) {
-            if (chocoName.equals(chocolates.get(i).getName())) {
-                Chocolate removedChocolate = chocolates.remove(i);
+    void removeChocolate(String productId) {
 
-                System.out.println(removedChocolate.getName()
-                        + " has been removed from the inventory.");
-                return;
-            }
+        Chocolate removedChocolate = chocolateMap.remove(productId);
+
+        if (removedChocolate != null) {
+            chocolates.remove(removedChocolate);
+
+            System.out.println(removedChocolate.getName()
+                    + " has been removed from the inventory.");
+        } else {
+            System.out.println("Chocolate not found.");
         }
-
-        System.out.println("Chocolate not found.");
     }
 
-    // filter
     List<Chocolate> filterByType(Types type) {
         List<Chocolate> filteredChocolate = new ArrayList<>();
 
@@ -100,15 +125,4 @@ class Inventory {
         return filteredChocolate;
     }
 
-    void searchByProductId(String productId) {
-
-        if (chocolateMap.containsKey(productId)) {
-            System.out.println("Chocolate found:");
-            System.out.println(chocolateMap.get(productId));
-            chocolateMap.get(productId).displayChocolate();
-        } else {
-            System.out.println("Chocolate not found.");
-        }
-
-    }
 }
