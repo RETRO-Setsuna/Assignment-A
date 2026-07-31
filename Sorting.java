@@ -2,7 +2,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-class SortingABC {
+class SortingByAlphabet {
     static final Comparator<Chocolate> comparator = Comparator.comparing(Chocolate::getName)
             .thenComparing(Chocolate::getPrice);
 
@@ -21,7 +21,7 @@ class SortingABC {
     }
 }
 
-class SortingPrice {
+class SortingByPrice {
     static final Comparator<Chocolate> comparator = Comparator.comparing(Chocolate::getPrice)
             .thenComparing(Chocolate::getType);
 

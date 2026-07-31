@@ -51,8 +51,8 @@ class LogInCredentials {
 }
 
 class Passwords extends LogInCredentials {
-    static final int miniLength = 8;
-    static Requirement requirement = new MiniRequirement(miniLength);
+    static final int minimumLength = 8;
+    static Requirement requirement = new MiniRequirement(minimumLength);
 
     Passwords(String userTypes) {
         super(userTypes);
@@ -87,24 +87,24 @@ class Usernames extends LogInCredentials {
 }
 
 class Users {
-    private Usernames uName;
-    private Passwords uPass;
+    private Usernames username;
+    private Passwords password;
 
     Users(Usernames uName, Passwords uPass) {
-        this.uName = uName;
-        this.uPass = uPass;
+        this.username = uName;
+        this.password = uPass;
     }
 
     public Usernames getName() {
-        return uName;
+        return username;
     }
 
     public Passwords getPass() {
-        return uPass;
+        return password;
     }
 
     public String toString() {
-        return "Name: " + uName + "    Password: " + uPass;
+        return "Name: " + username + "    Password: " + password;
     }
 }
 
@@ -121,9 +121,9 @@ class ListOfUsers {
         Usernames username = new Usernames(uNameStr);
         Passwords password = new Passwords(uPassStr);
 
-        boolean temp = true;
+        boolean passwordInvalid = true;
 
-        while (temp == true) {
+        while (passwordInvalid == true) {
             try {
                 if (password.passwordchecker()) {
                     break;
@@ -133,7 +133,7 @@ class ListOfUsers {
                 }
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage() + "Make sure password is 8 character long");
-                temp = false;
+                passwordInvalid = false;
             }
         }
         users.put(username, password);

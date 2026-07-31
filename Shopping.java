@@ -107,11 +107,13 @@ class Shopping {
         System.out.println();
         System.out.println("Order placed successfully.");
 
+        currentOrder.clear();
         for (Chocolate chocolate : cart) {
             currentOrder.add(chocolate);
         }
 
         cart.clear();
+
     }
 
     void viewOrderStatus() {

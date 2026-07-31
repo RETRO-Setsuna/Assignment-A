@@ -83,8 +83,23 @@ class HDChocoShop {
         if (foundChocolate != null) {
             System.out.println("Chocolate found:");
             System.out.println(foundChocolate);
-        } else {
-            System.out.println("Chocolate not found.");
+
+            System.out.println();
+            System.out.println("Would you like to add this chocolate to your cart?");
+            System.out.println("1. Yes");
+            System.out.println("2. No");
+            System.out.println();
+            System.out.print("Select an option: ");
+
+            int choice = In.nextInt();
+
+            if (choice == 1) {
+                shopping.addToCart(foundChocolate);
+            } else if (choice == 2) {
+                System.out.println("Chocolate was not added to the cart.");
+            } else {
+                System.out.println("Invalid option.");
+            }
         }
     }
 
@@ -94,6 +109,7 @@ class HDChocoShop {
         System.out.println();
 
         System.out.print("Enter chocolate name: ");
+        System.out.println();
         String name = In.nextLine();
 
         Types type = null;
@@ -270,8 +286,8 @@ class HDChocoShop {
     }
 
     void sortChocolate() {
-        SortingABC abc = new SortingABC();
-        SortingPrice price = new SortingPrice();
+        SortingByAlphabet abc = new SortingByAlphabet();
+        SortingByPrice price = new SortingByPrice();
 
         System.out.println();
         System.out.println("Sort Chocolate");
