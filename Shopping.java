@@ -204,7 +204,6 @@ class Shopping {
 
     @Override
     public String toString() {
-        return "Cart items: " + cart.size()
-                + ", Order status: " + orderStatus;
+        return "Cart items: " + cart.size() + ", Order status: " + orderStatus;
     }
 }
