@@ -48,6 +48,8 @@ class HDChocoShop {
         String password = In.nextLine();
 
         users.signUp(name, password);
+
+        System.out.println("Membership sign up successful.");
     }
 
     void membershipSignIn() {
@@ -309,6 +311,11 @@ class HDChocoShop {
     }
 
     void checkout() {
+        if (!memberSignedIn) {
+            System.out.println("Please sign in before checkout.");
+            return;
+        }
+
         shopping.checkout(memberSignedIn);
     }
 
