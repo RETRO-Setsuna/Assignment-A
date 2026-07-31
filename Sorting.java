@@ -2,26 +2,13 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-interface ChocolateSorter {
+class SortingByAlphabet {
 
-    Comparator<Chocolate> getComparator();
-
-    void sortChocolate(List<Chocolate> chocolates);
-}
-
-class SortingByAlphabet implements ChocolateSorter {
-
-    static final Comparator<Chocolate> comparator = Comparator.comparing(Chocolate::getName)
+    private static final Comparator<Chocolate> comparator = Comparator.comparing(Chocolate::getName)
             .thenComparing(Chocolate::getPrice);
 
-    @Override
-    public Comparator<Chocolate> getComparator() {
-        return comparator;
-    }
-
-    @Override
     public void sortChocolate(List<Chocolate> chocolates) {
-        Collections.sort(chocolates, getComparator());
+        Collections.sort(chocolates, comparator);
 
         for (Chocolate c : chocolates) {
             System.out.println(c);
@@ -35,19 +22,13 @@ class SortingByAlphabet implements ChocolateSorter {
     }
 }
 
-class SortingByPrice implements ChocolateSorter {
+class SortingByPrice {
 
-    static final Comparator<Chocolate> comparator = Comparator.comparing(Chocolate::getPrice)
+    private static final Comparator<Chocolate> comparator = Comparator.comparing(Chocolate::getPrice)
             .thenComparing(Chocolate::getType);
 
-    @Override
-    public Comparator<Chocolate> getComparator() {
-        return comparator;
-    }
-
-    @Override
     public void sortChocolate(List<Chocolate> chocolates) {
-        Collections.sort(chocolates, getComparator());
+        Collections.sort(chocolates, comparator);
 
         for (Chocolate c : chocolates) {
             System.out.println(c);
