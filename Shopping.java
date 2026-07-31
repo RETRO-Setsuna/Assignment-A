@@ -89,19 +89,23 @@ class Shopping {
         System.out.println("Checkout Summary");
 
         if (memberSignedIn) {
-            System.out.println("Member Discount: $" + discount);
+            System.out.println("Original Price: $ " + originalTotal);
+            System.out.println("Member Discount (10%): $ " + discount);
+            System.out.println("Total Price: $ " + total);
+
         } else {
-            System.out.println("Sign in as a member to receive a 10% discount.");
+            System.out.println("Membership Discount: Not Applied");
+            System.out.println("Sign in as a member next time to receive a 10% discount.");
+            System.out.println("Total Price: $ " + total);
+
         }
-        System.out.println();
-        System.out.println("Total Price: $" + total);
+
         System.out.println();
         System.out.println("Payment Method: " + paymentMethod);
         System.out.println("Delivery Option: " + delivery);
+
         System.out.println();
         System.out.println("Order placed successfully.");
-        System.out.println();
-        currentOrder.clear();
 
         for (Chocolate chocolate : cart) {
             currentOrder.add(chocolate);

@@ -6,11 +6,11 @@ interface Requirement {
     boolean satisfaction(String values);
 }
 
-class miniRequirement implements Requirement {
+class MiniRequirement implements Requirement {
 
     int miniLen;
 
-    miniRequirement(int miniLen) {
+    MiniRequirement(int miniLen) {
         this.miniLen = miniLen;
     }
 
@@ -48,7 +48,7 @@ class LogInCredentials {
 
 class Passwords extends LogInCredentials {
     static final int miniLength = 8;
-    static Requirement requirement = new miniRequirement(miniLength);
+    static Requirement requirement = new MiniRequirement(miniLength);
 
     Passwords(String userTypes) {
         super(userTypes);

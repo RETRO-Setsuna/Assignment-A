@@ -311,10 +311,6 @@ class HDChocoShop {
     }
 
     void checkout() {
-        if (!memberSignedIn) {
-            System.out.println("Please sign in before checkout.");
-            return;
-        }
 
         shopping.checkout(memberSignedIn);
     }
