@@ -6,7 +6,6 @@ class HDChocoShop {
     private Inventory inventory;
     private Shopping shopping;
     private StaffManager staffManager;
-
     private boolean memberSignedIn;
     private ListOfUsers users;
 
@@ -31,41 +30,43 @@ class HDChocoShop {
         return inventory;
     }
 
-    void membershipSignIn() {
-        System.out.println("Membership Sign In");
-        System.out.println();
-
-        System.out.print("Enter your Username: ");
-        String name = In.nextLine();
-
-        System.out.print("Enter your Password: ");
-        String pass = In.nextLine();
-
-        memberSignedIn = users.signIn(name, pass);
-
-        if (memberSignedIn) {
-            System.out.println("Welcome back, " + name + "!");
-            System.out.println("Members can receive 10% discount!");
-        }
-    }
-
     void membershipSignUp() {
+
+        System.out.println();
         System.out.println("Membership Sign Up");
         System.out.println();
 
-        System.out.print("Create a Username: ");
-        String accName = In.nextLine();
+        System.out.print("Enter your name: ");
+        String name = In.nextLine();
 
-        System.out.print("Create your Password: ");
-        String accPass = In.nextLine();
+        if (users.userExists(name)) {
+            System.out.println("This username already exists.");
+            return;
+        }
 
-        users.signUp(accName, accPass);
+        System.out.print("Enter your password: ");
+        String password = In.nextLine();
 
-        memberSignedIn = users.signIn(accName, accPass);
+        users.signUp(name, password);
+    }
 
-        System.out.println("Welcome " + accName + "!");
-        System.out.println("Members can receive 10% discount!");
+    void membershipSignIn() {
         System.out.println();
+        System.out.println("Membership Sign In");
+        System.out.println();
+
+        System.out.print("Enter your name: ");
+        String name = In.nextLine();
+
+        System.out.print("Enter your password: ");
+        String password = In.nextLine();
+
+        if (users.signIn(name, password)) {
+            memberSignedIn = true;
+            System.out.println("Sign in successful. Welcome, " + name + "!");
+        } else {
+            System.out.println("Incorrect name or password.");
+        }
     }
 
     void searchChocolate() {
