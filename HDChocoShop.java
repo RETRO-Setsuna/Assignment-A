@@ -65,9 +65,10 @@ class HDChocoShop {
 
         if (users.signIn(name, password)) {
             memberSignedIn = true;
-            System.out.println("Sign in successful. Welcome, " + name + "!");
+            System.out.println("Welcome " + name + "!");
+            System.out.println("Members can receive 10% discount!");
         } else {
-            System.out.println("Incorrect name or password.");
+            System.out.println("Wrong password or Username, Please try again");
         }
     }
 

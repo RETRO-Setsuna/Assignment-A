@@ -145,15 +145,14 @@ class ListOfUsers {
     public boolean signIn(String accountName, String accountPassword) {
         boolean temp = false;
         for (Users u : listUsers) {
-            if (accountName.equals(u.getName().getUserTypes())) {
-                if (accountPassword.equals(u.getPass().getUserTypes())) {
-                    temp = true;
-                } else {
-                    System.out.println("Wrong password or Username, Please try again");
-                }
+            if (accountName.equals(u.getName().getUserTypes())
+                    && accountPassword.equals(u.getPass().getUserTypes())) {
+
+                return true;
             }
         }
-        return temp;
+
+        return false;
     }
 
     public boolean userExists(String username) {
