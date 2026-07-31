@@ -23,6 +23,10 @@ class MiniRequirement implements Requirement {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Minimum length requirement: " + miniLen;
+    }
 }
 
 class LogInCredentials {
@@ -62,6 +66,12 @@ class Passwords extends LogInCredentials {
             return true;
         }
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
 }
 
 class Usernames extends LogInCredentials {
@@ -70,6 +80,10 @@ class Usernames extends LogInCredentials {
         super(userTypes);
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
 
 class Users {
@@ -149,5 +163,10 @@ class ListOfUsers {
             }
         }
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Number of registered users: " + listUsers.size();
     }
 }

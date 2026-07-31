@@ -202,4 +202,9 @@ class Shopping {
         System.out.println("Order status updated to: " + orderStatus);
     }
 
+    @Override
+    public String toString() {
+        return "Cart items: " + cart.size()
+                + ", Order status: " + orderStatus;
+    }
 }

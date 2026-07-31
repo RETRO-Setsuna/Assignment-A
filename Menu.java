@@ -83,4 +83,9 @@ class Menu {
             }
         }
     }
+
+    @Override
+    public String toString() {
+        return "HD Choco Shop Menu";
+    }
 }

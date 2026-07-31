@@ -325,4 +325,9 @@ class StaffManager {
 
         inventory.removeChocolate(productId);
     }
+
+    @Override
+    public String toString() {
+        return "Staff Manager";
+    }
 }

@@ -97,7 +97,6 @@ class HDChocoShop {
         System.out.print("Enter chocolate name: ");
         String name = In.nextLine();
 
-        // Chocolate type
         Types type = null;
 
         while (type == null) {
@@ -126,7 +125,6 @@ class HDChocoShop {
             }
         }
 
-        // Size
         Size size = null;
 
         while (size == null) {
@@ -155,7 +153,6 @@ class HDChocoShop {
             }
         }
 
-        // Sweetness
         Sweetness sweetness = null;
 
         while (sweetness == null) {
@@ -187,7 +184,6 @@ class HDChocoShop {
             }
         }
 
-        // Filling
         Fillings filling = null;
 
         while (filling == null) {
@@ -216,7 +212,6 @@ class HDChocoShop {
             }
         }
 
-        // Topping
         Toppings topping = null;
 
         while (topping == null) {
@@ -248,7 +243,6 @@ class HDChocoShop {
             }
         }
 
-        // Price
         double price = 10.00;
 
         if (size == Size.M) {
@@ -492,4 +486,8 @@ class HDChocoShop {
         displayFilteredChocolate(inventory.filterBySweetness(sweetness));
     }
 
+    @Override
+    public String toString() {
+        return "HD Choco Shop";
+    }
 }

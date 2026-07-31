@@ -14,6 +14,11 @@ class SortingABC {
             System.out.println();
         }
     }
+
+    @Override
+    public String toString() {
+        return "Sorting method: Alphabetical order";
+    }
 }
 
 class SortingPrice {
@@ -27,5 +32,10 @@ class SortingPrice {
             System.out.println(c);
             System.out.println();
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Sorting method: Price order";
     }
 }

@@ -125,4 +125,8 @@ class Inventory {
         return filteredChocolate;
     }
 
+    @Override
+    public String toString() {
+        return "Inventory contains " + chocolates.size() + " chocolates";
+    }
 }
