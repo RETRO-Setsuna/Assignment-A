@@ -146,7 +146,7 @@ class HDChocoShop {
     }
 
     void sortChocolate() {
-        SortingByAlphabet abc = new SortingByAlphabet();
+        SortingByAlphabet alphabetSorter = new SortingByAlphabet();
         SortingByPrice price = new SortingByPrice();
 
         System.out.println();
@@ -161,7 +161,7 @@ class HDChocoShop {
         int choice = In.nextInt();
 
         if (choice == 1) {
-            abc.sortChocolate(inventory.getChocolates());
+            alphabetSorter.sortChocolate(inventory.getChocolates());
         } else if (choice == 2) {
             price.sortChocolate(inventory.getChocolates());
         } else if (choice == 3) {

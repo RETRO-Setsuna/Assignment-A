@@ -54,6 +54,6 @@ class Main {
 
         @Override
         public String toString() {
-                return "HD chocolate chop Chocolates";
+                return "HD chocolate Shop Chocolates";
         }
 }

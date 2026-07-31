@@ -168,6 +168,6 @@ class ChocolateSelector {
 
     @Override
     public String toString() {
-        return "Chocolate  Selector";
+        return "Chocolate Selector";
     }
 }

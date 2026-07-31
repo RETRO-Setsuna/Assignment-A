@@ -58,9 +58,9 @@ class Passwords extends LogInCredentials {
         super(userTypes);
     }
 
-    boolean passwordchecker() {
+    boolean passwordChecker() {
         if (!requirement.satisfaction(getUserTypes())) {
-            System.out.println("Password must be longer than 8 characters");
+            System.out.println("Password must be at least 8 characters");
             return false;
         } else {
             return true;
@@ -125,7 +125,7 @@ class ListOfUsers {
 
         while (passwordInvalid == true) {
             try {
-                if (password.passwordchecker()) {
+                if (password.passwordChecker()) {
                     break;
                 } else {
                     System.out.print("Please try again: ");
