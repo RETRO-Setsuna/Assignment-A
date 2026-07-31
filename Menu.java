@@ -12,7 +12,7 @@ class Menu {
         while (running) {
 
             System.out.println();
-            System.out.println(" Welcome to HD Choco Shop!!!!!!!!!!!!!");
+            System.out.println("Welcome to HD Choco Shop!!!!!!");
             System.out.println();
             System.out.println("1. Customer");
             System.out.println("2. Staff");
