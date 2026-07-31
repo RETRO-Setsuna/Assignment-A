@@ -143,7 +143,7 @@ class ListOfUsers {
     }
 
     public boolean signIn(String accountName, String accountPassword) {
-        boolean temp = false;
+
         for (Users u : listUsers) {
             if (accountName.equals(u.getName().getUserTypes())
                     && accountPassword.equals(u.getPass().getUserTypes())) {
