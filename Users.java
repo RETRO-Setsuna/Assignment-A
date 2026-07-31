@@ -6,11 +6,11 @@ interface Requirement {
     boolean satisfaction(String values);
 }
 
-class MiniReq implements Requirement {
+class miniRequirement implements Requirement {
 
     int miniLen;
 
-    MiniReq(int miniLen) {
+    miniRequirement(int miniLen) {
         this.miniLen = miniLen;
     }
 
@@ -48,7 +48,7 @@ class LogInCredentials {
 
 class Passwords extends LogInCredentials {
     static final int miniLength = 8;
-    static Requirement requirement = new MiniReq(miniLength);
+    static Requirement requirement = new miniRequirement(miniLength);
 
     Passwords(String userTypes) {
         super(userTypes);
@@ -103,7 +103,7 @@ class ListOfUsers {
         this.listUsers = listOfUsers;
     }
 
-    public void SignUp(String uNameStr, String uPassStr) {
+    public void signUp(String uNameStr, String uPassStr) {
         Usernames username = new Usernames(uNameStr);
         Passwords password = new Passwords(uPassStr);
 
@@ -128,7 +128,7 @@ class ListOfUsers {
 
     }
 
-    public boolean SignIn(String accountName, String accountPassword) {
+    public boolean signIn(String accountName, String accountPassword) {
         boolean temp = false;
         for (Users u : listUsers) {
             if (accountName.equals(u.getName().getUserTypes())) {

@@ -63,11 +63,36 @@ class Inventory {
         System.out.println("Chocolate not found.");
     }
 
+    // filter
     List<Chocolate> filterByType(Types type) {
         List<Chocolate> filteredChocolate = new ArrayList<>();
 
         for (Chocolate chocolate : chocolates) {
             if (chocolate.getType() == type) {
+                filteredChocolate.add(chocolate);
+            }
+        }
+
+        return filteredChocolate;
+    }
+
+    List<Chocolate> filterBySize(Size size) {
+        List<Chocolate> filteredChocolate = new ArrayList<>();
+
+        for (Chocolate chocolate : chocolates) {
+            if (chocolate.getSize() == size) {
+                filteredChocolate.add(chocolate);
+            }
+        }
+
+        return filteredChocolate;
+    }
+
+    List<Chocolate> filterBySweetness(Sweetness sweetness) {
+        List<Chocolate> filteredChocolate = new ArrayList<>();
+
+        for (Chocolate chocolate : chocolates) {
+            if (chocolate.getSweetness() == sweetness) {
                 filteredChocolate.add(chocolate);
             }
         }
