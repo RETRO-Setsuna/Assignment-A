@@ -2,11 +2,11 @@ class Main {
     public static void main(String[] args) {
 
         HDChocoShop shop = new HDChocoShop();
-        // Normal
-        shop.getInventory().addChocolate(new NormalChocolate("N001", "Milk Chocolate", 10.00, Size.M, Sweetness.FIFTY,
+
+        shop.getInventory().addChocolate(new NormalChocolate("N001","Milk Chocolate", 10.00, Size.M, Sweetness.FIFTY,
                 Types.MILK_CHOCOLATE, Fillings.CARAMEL, Toppings.OREO));
 
-        shop.getInventory().addChocolate(new NormalChocolate("N002", "Dark Chocolate", 11.50, Size.S,
+        shop.getInventory().addChocolate(new NormalChocolate("N002","Dark Chocolate", 11.50, Size.S,
                 Sweetness.TWENTY_FIVE, Types.DARK_CHOCOLATE, Fillings.NONE, Toppings.NONE));
 
         shop.getInventory().addChocolate(new NormalChocolate("N003", "White Chocolate", 12.00, Size.L,
@@ -20,7 +20,9 @@ class Main {
 
         shop.getInventory().addChocolate(new NormalChocolate("N006", "Classic Dark", 9.50, Size.S, Sweetness.ZERO,
                 Types.DARK_CHOCOLATE, Fillings.NONE, Toppings.NONE));
-        // Customed
+    
+
+                
         shop.getInventory().addChocolate(new CustomChocolate("C001", "Dark Nut Chocolate", 12.00, Size.L,
                 Sweetness.TWENTY_FIVE, Types.DARK_CHOCOLATE, Fillings.NUTS, Toppings.EXTRA_CHOCOLATE));
 

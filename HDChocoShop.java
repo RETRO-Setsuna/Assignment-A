@@ -15,9 +15,7 @@ class HDChocoShop {
 
         memberSignedIn = false;
 
-        users = new ListOfUsers(
-                new HashMap<Usernames, Passwords>(),
-                new ArrayList<>());
+        users = new ListOfUsers(new HashMap<Usernames, Passwords>(), new ArrayList<>());
 
         staffManager = new StaffManager(inventory, shopping);
     }
