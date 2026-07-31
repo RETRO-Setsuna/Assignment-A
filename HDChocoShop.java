@@ -76,6 +76,9 @@ class HDChocoShop {
         System.out.println();
 
         System.out.print("Enter chocolate name to search: ");
+        System.out.println("Search is case-sensitive.");
+        System.out.println("Please enter the exact name (ex) Dark Chocolate).");
+
         String name = In.nextLine();
 
         Chocolate foundChocolate = inventory.searchChocolateByName(name);
