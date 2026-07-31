@@ -1,6 +1,7 @@
 class ChocolateSelector {
 
     static Types chooseType() {
+
         Types type = null;
 
         while (type == null) {
@@ -14,15 +15,15 @@ class ChocolateSelector {
             System.out.println();
             System.out.print("Select an option: ");
 
-            int typeChoice = In.nextInt();
+            int choice = In.nextInt();
 
-            if (typeChoice == 1) {
+            if (choice == 1) {
                 type = Types.WHITE_CHOCOLATE;
-            } else if (typeChoice == 2) {
+            } else if (choice == 2) {
                 type = Types.DARK_CHOCOLATE;
-            } else if (typeChoice == 3) {
+            } else if (choice == 3) {
                 type = Types.MILK_CHOCOLATE;
-            } else if (typeChoice == 4) {
+            } else if (choice == 4) {
                 type = Types.COOKIE_AND_CREAM;
             } else {
                 System.out.println("Invalid option. Please choose again.");
@@ -33,6 +34,7 @@ class ChocolateSelector {
     }
 
     static Size chooseSize() {
+
         Size size = null;
 
         while (size == null) {
@@ -65,6 +67,7 @@ class ChocolateSelector {
     }
 
     static Sweetness chooseSweetness() {
+
         Sweetness sweetness = null;
 
         while (sweetness == null) {
@@ -100,6 +103,7 @@ class ChocolateSelector {
     }
 
     static Fillings chooseFilling() {
+
         Fillings filling = null;
 
         while (filling == null) {
@@ -132,6 +136,7 @@ class ChocolateSelector {
     }
 
     static Toppings chooseTopping() {
+
         Toppings topping = null;
 
         while (topping == null) {
@@ -146,17 +151,17 @@ class ChocolateSelector {
             System.out.println();
             System.out.print("Select an option: ");
 
-            int toppingChoice = In.nextInt();
+            int toppingsChoice = In.nextInt();
 
-            if (toppingChoice == 1) {
+            if (toppingsChoice == 1) {
                 topping = Toppings.NONE;
-            } else if (toppingChoice == 2) {
+            } else if (toppingsChoice == 2) {
                 topping = Toppings.FRUITS;
-            } else if (toppingChoice == 3) {
+            } else if (toppingsChoice == 3) {
                 topping = Toppings.OREO;
-            } else if (toppingChoice == 4) {
+            } else if (toppingsChoice == 4) {
                 topping = Toppings.CANDY_POP;
-            } else if (toppingChoice == 5) {
+            } else if (toppingsChoice == 5) {
                 topping = Toppings.EXTRA_CHOCOLATE;
             } else {
                 System.out.println("Invalid option. Please choose again.");
