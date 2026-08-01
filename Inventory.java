@@ -18,8 +18,7 @@ class Inventory {
         chocolateMap.put(c.getProductId(), c);
     }
 
-    void addChocolate(String id, String name, double price, Size size, Sweetness sweetness, Types type,
-            Fillings filling, Toppings topping) {
+    void addChocolate(String id, String name, double price, Size size, Sweetness sweetness, Types type,Fillings filling, Toppings topping) {
 
         Chocolate c = new NormalChocolate(id, name, price, size, sweetness, type,
                 filling, topping);
