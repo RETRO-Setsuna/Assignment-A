@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Map;
 
 interface Requirement {
-    boolean satisfaction(String values);
+    boolean satisfaction(String v);
 }
 
 class LogInCredentials {
@@ -27,7 +27,7 @@ class LogInCredentials {
 
 }
 
-class Passwords extends LogInCredentials implements Requirement{
+class Passwords extends LogInCredentials implements Requirement {
     static final int minimumLength = 8;
 
     Passwords(String userTypes) {
@@ -35,15 +35,14 @@ class Passwords extends LogInCredentials implements Requirement{
     }
 
     @Override
-    public boolean satisfaction(String v) {
-        if (v.length() >= minimumLength) {
+    public boolean satisfaction(String value) {
+        if (value.length() >= minimumLength) {
             return true;
         } else {
             return false;
         }
     }
 
-    
     public boolean passwordChecker() {
         if (!satisfaction(userTypes)) {
             System.out.println("Password must be at least 8 characters");
