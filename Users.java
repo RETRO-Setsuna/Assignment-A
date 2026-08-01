@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Map;
 
 interface Requirement {
-    boolean satisfaction(String v);
+    boolean satisfaction(String values);
 }
 
 class LogInCredentials {
