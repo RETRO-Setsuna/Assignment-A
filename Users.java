@@ -90,9 +90,9 @@ class Users {
     private Usernames username;
     private Passwords password;
 
-    Users(Usernames uName, Passwords uPass) {
-        this.username = uName;
-        this.password = uPass;
+    Users(Usernames username, Passwords password) {
+        this.username = username;
+        this.password = password;
     }
 
     public Usernames getName() {
@@ -117,9 +117,9 @@ class ListOfUsers {
         this.listUsers = listOfUsers;
     }
 
-    public void signUp(String uNameStr, String uPassStr) {
-        Usernames username = new Usernames(uNameStr);
-        Passwords password = new Passwords(uPassStr);
+    public void signUp(String userNameInput, String passwordInput) {
+        Usernames username = new Usernames(userNameInput);
+        Passwords password = new Passwords(passwordInput);
 
         boolean passwordInvalid = true;
 
